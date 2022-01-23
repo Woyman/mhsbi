@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Mhsbi.com</title>
+    <title>mhsbi.com</title>
     @include('layout.meta-header')
     @include('layout.css-header')
 
@@ -12,7 +12,7 @@
 @include('layout.header-menu')    
 @yield('content')
 
-
+@include('layout.footer-content')
 @include('layout.js-assets')
 </body>
 
