@@ -9,7 +9,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Titillium Web", sans-serif;
   color: #272829;
 }
 
@@ -24,7 +24,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Titillium Web", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -270,7 +270,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #45505b;
   margin: 15px 0 0 0;
   font-size: 26px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Titillium Web", sans-serif;
 }
 #hero p span {
   color: #0563bb;
@@ -314,7 +314,7 @@ section {
 }
 
 .section-title {
-  text-align: center;
+  /* text-align: center; */
   padding-bottom: 30px;
 }
 .section-title h2 {
@@ -334,7 +334,7 @@ section {
   height: 1px;
   background: #ddd;
   bottom: 1px;
-  left: calc(50% - 60px);
+  /* left: calc(50% - 60px); */
 }
 .section-title h2::after {
   content: "";
@@ -344,7 +344,7 @@ section {
   height: 3px;
   background: #0563bb;
   bottom: 0;
-  left: calc(50% - 20px);
+  /* left: calc(50% - 20px); */
 }
 .section-title p {
   margin-bottom: 0;
@@ -363,7 +363,7 @@ section {
   padding: 0;
 }
 .about .content ul li {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   display: flex;
   align-items: center;
 }
@@ -415,7 +415,7 @@ section {
 .facts .count-box p {
   padding: 0;
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Titillium Web", sans-serif;
   font-size: 14px;
 }
 
@@ -434,7 +434,7 @@ section {
   text-transform: uppercase;
   display: block;
   font-weight: 600;
-  font-family: "Poppins", sans-serif;
+  font-family: "Titillium Web", sans-serif;
   color: #45505b;
 }
 .skills .progress .skill .val {
@@ -472,7 +472,7 @@ section {
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: "Titillium Web", sans-serif;
   color: #0563bb;
   margin-bottom: 10px;
 }
@@ -1009,7 +1009,7 @@ section {
   font-size: 36px;
   font-weight: 700;
   position: relative;
-  font-family: "Poppins", sans-serif;
+  font-family: "Titillium Web", sans-serif;
   padding: 0;
   margin: 0 0 15px 0;
 }
