@@ -1,6 +1,5 @@
 <?php 
 
-phpinfo();
 echo $dbname = "bmtpas_db";
 echo $user = "bmtpas_dbuser";
 echo $psw = "bmtpas_dbuser123";
