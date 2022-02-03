@@ -1,0 +1,14 @@
+<?php 
+
+$dbname = "bmtpas_db";
+$user = "bmtpas_dbuser";
+$psw = "bmtpas_dbuser123";
+
+$connect =  mysqli_connect("localhost",$user,$psw, $dbname);   
+
+$qGetBerita = "SELECT * FROM berita WHERE link_berita ='$p' ";
+$getBerita = mysqli_query($connect, $qGetBerita);
+$berita = mysqli_fetch_assoc($getBerita);
+echo "<pre>";
+print_r($berita);
+?>
