@@ -1,5 +1,6 @@
 <?php 
 
+phpinfo();
 echo $dbname = "bmtpas_db";
 echo $user = "bmtpas_dbuser";
 echo $psw = "bmtpas_dbuser123";
@@ -11,4 +12,5 @@ $getBerita = mysqli_query($connect, $qGetBerita);
 $berita = mysqli_fetch_assoc($getBerita);
 echo "<pre>";
 print_r($berita);
+
 ?>
