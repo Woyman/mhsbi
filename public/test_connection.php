@@ -1,8 +1,8 @@
 <?php 
 
-$dbname = "bmtpas_db";
-$user = "bmtpas_dbuser";
-$psw = "bmtpas_dbuser123";
+echo $dbname = "bmtpas_db";
+echo $user = "bmtpas_dbuser";
+echo $psw = "bmtpas_dbuser123";
 
 $connect =  mysqli_connect("localhost",$user,$psw, $dbname);   
 
