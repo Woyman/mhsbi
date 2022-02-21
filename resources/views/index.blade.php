@@ -92,7 +92,7 @@
         </div>
     </section>
 
-    <section id="about" class="about">
+    <section id="projects" class="projects">
         <div class="container" data-aos="fade-up">
             <div class="section-title">
                 <h2>Projects</h2>     
