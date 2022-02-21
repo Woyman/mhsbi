@@ -92,7 +92,85 @@
         </div>
     </section>
 
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Projects</h2>     
+                <p>Here are some of the projects I've worked on</p>           
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 my-3">
+                    <div class="portfolio-wrap">
+                        <img src="{{ asset('assets/img/projects/tubestream.jpg') }}" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            
+                            <p class="my-2"><a target="_blank" href="https://tubestream.com">Tubestream</a></p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 my-3">
+                    <div class="portfolio-wrap">
+                        <img src="{{ asset('assets/img/projects/pesanlokal.jpg') }}" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            
+                            <p class="my-2"><a target="_blank" href="https://pesanlokal.com">App Pesanlokal</a></p>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 my-3">
+                    <div class="portfolio-wrap">
+                        <img src="{{ asset('assets/img/projects/bmtpasbantul.png') }}" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            
+                            <p class="my-2"><a target="_blank" href="https://bmtpas.com">bmtpas.com</a></p>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 my-3">
+                    <div class="portfolio-wrap">
+                        <img src="{{ asset('assets/img/projects/ibumengaji.png') }}" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            
+                            <p class="my-2"><a target="_blank" href="https://ibumengaji.com">ibumengaji.com</a></p>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 my-3">
+                    <div class="portfolio-wrap">
+                        <img src="{{ asset('assets/img/projects/mirotakampus.png') }}" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            
+                            <p class="my-2"><a target="_blank" href="https://mirotakampus.com">mirotakampus.com</a></p>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 my-3">
+                    <div class="portfolio-wrap">
+                        <img src="{{ asset('assets/img/projects/retribusisampahmerauke.png') }}" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            
+                            <p class="my-2"><a target="_blank" href="https://retribusisampahmerauke.com">retribusisampahmerauke.com</a></p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
+
+
 
 
 
