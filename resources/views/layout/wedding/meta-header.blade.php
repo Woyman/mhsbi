@@ -1,8 +1,8 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<meta name="title" content="Aini & Hasbi Wedding Invitation">
-<meta name="description" content="">
+<meta name="title" content="Aini dan Hasbi Wedding Invitation">
+<meta name="description" content="Undangan pernikahan Aini dan Hasbi">
 <meta content="" name="keywords">
 
 <meta property="og:type" content="website">
