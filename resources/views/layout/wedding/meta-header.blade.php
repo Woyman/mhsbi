@@ -5,6 +5,7 @@
 <meta name="description" content="Undangan pernikahan Aini dan Hasbi">
 <meta content="" name="keywords">
 
+<meta property="og:locale" content="en_US" />
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="mhsbi.com">
 <meta property="og:url" content="https://mhsbi.com/my-wedding-invitation">
