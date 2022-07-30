@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'Monoline Signature Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../font/monoline-signature.woff')
+
+}
+
+@font-face {
+    font-family: 'Cinzel';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../font/cinzel-v19-latin-regular.woff')
+
+}
+
+/* lora-regular - latin */
+@font-face {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../font/lora-v25-latin-regular.woff');
+}
+
+@font-face {
+    font-family: 'Jimmy Script';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../font/jimmy-script.otf')
+
+}
+
+.font-monoline-scripts {
+    font-family: "Monoline Signature Regular", sans-serif !important;
+}
+
+.font-cinzel {
+    font-family: "Cinzel", sans-serif !important;
+}
+
+.font-jimmy-script {
+    font-family: "Jimmy Script", sans-serif !important;
+}
+
+.font-lora {
+    font-family: "Lora", sans-serif !important;
+}
+
+.title-couple-name{
+    font-size: 5rem !important; 
+    letter-spacing: 8px;
+}
+
+.countdown-wrapper {
+    padding-left: 0px;
+}
+
+.countdown-wrapper li {
+    display: inline-block;
+    font-size: 1.5em;
+    list-style-type: none;
+    padding-top: 0.3em ;
+    padding-bottom: 0.3em ;
+    padding-left: 1em ;
+    padding-right: 1em ;
+    text-transform: uppercase;
+    font-family: 'font-cinzel';
+}
+
+.countdown-wrapper li span {
+    display: block;
+    font-size: 4.5rem;
+    font-family: 'font-cinzel';
+}
+
+
+@media (max-width: 992px) {
+    .countdown-wrapper li {
+        font-size: 0.9em;
+    }
+    
+    .countdown-wrapper li span {
+        font-size: 1.6rem;
+    }
+    
+    .title-couple-name{
+        font-size: 2.5rem !important; 
+    }
+}
