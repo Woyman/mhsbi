@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:og="http://opengraphprotocol.org/schema/">
 
 <head>
     <title>Aini & Hasbi Wedding Invitation</title>
