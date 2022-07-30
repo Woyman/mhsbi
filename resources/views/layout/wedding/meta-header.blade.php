@@ -22,3 +22,5 @@
 <meta property="twitter:title" content="Aini dan Hasbi Wedding Invitation">
 <meta property="twitter:description" content="Undangan pernikahan Aini dan Hasbi">
 <meta property="twitter:image" content="<?php echo asset('assets/img/tumbnail-meta.jpg') ?>">
+
+<meta name="google-site-verification" content="OIH3RWP4XQ9wPMGIc5FCdDY_6ZY0NBdb5hNDH2h1-s4" />
