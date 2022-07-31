@@ -6,14 +6,14 @@
 <meta content="" name="keywords">
 
 <meta property="og:locale" content="en_US" />
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="mhsbi.com">
 <meta property="og:url" content="https://mhsbi.com/my-wedding-invitation">
 <meta property="og:title" content="Aini dan Hasbi Wedding Invitation">
 <meta property="og:description" content="Undangan pernikahan Aini dan Hasbi">
 <meta property="og:image" itemprop="image" content="<?php echo asset('assets/img/tumbnail-meta.jpg') ?>">
-<meta property="og:image:width" content="1903" />
-<meta property="og:image:height" content="1010" />
+<meta property="og:image:width" content="1000" />
+<meta property="og:image:height" content="530" />
 <meta property="og:image:type" content="image/jpeg" />
 
 <!-- Twitter -->
