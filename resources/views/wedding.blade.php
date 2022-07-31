@@ -75,7 +75,7 @@
                                     <div class="d-flex flex-column text-center mt-3">
                                         <h1 class="font-jimmy-script">Muhammad Hasbi Habibi</h1>
                                         <p class="font-lora">
-                                                Putri dari </br>
+                                                Putra dari </br>
                                                 Bapak Khabib Bastari dan Ibu Siti Samlina
                                             </p>
                                     </div>
