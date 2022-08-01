@@ -74,6 +74,11 @@
     font-family: 'Cinzel';
 }
 
+#myVideo {
+    position: fixed; 
+    width: 100%;
+}
+
 
 @media (max-width: 992px) {
     .countdown-wrapper li {
@@ -87,4 +92,17 @@
     .title-couple-name{
         font-size: 2.5rem !important; 
     }
+
+    #myVideo {
+        position: fixed;        
+        right: 0;
+        top: 0;
+        width: 765px;
+    }
+
+    #hero::before{
+        background-color: #bcd1da !important;
+    }
 }
+
+

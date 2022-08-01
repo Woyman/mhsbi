@@ -17,6 +17,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/my-wedding-invitation', function () {
-    return view('wedding');
-});
+Route::get('/my-wedding-invitation', 'App\Http\Controllers\WeddingController@index');
+Route::post('/my-wedding-invitation/ucapan/post', 'App\Http\Controllers\WeddingController@postUcapan');

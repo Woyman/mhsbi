@@ -5,6 +5,7 @@
     <title>mhsbi.com</title>
     @include('layout.meta-header')
     @include('layout.css-header')
+    @stack('scripts')
 
 </head>
 
