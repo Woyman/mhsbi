@@ -257,7 +257,7 @@
                                 <input type="text" name="nama" class="form-control" id="name" placeholder="Masukkan nama" required>
                             </div>
                             <div class="mb-3">                            
-                                <input type="text" name="ucapan" class="form-control" id="ucapan" placeholder="Ucapan kepada mempelai" required>
+                                <textarea row="5" type="text" name="ucapan" class="form-control" id="ucapan" placeholder="Ucapan kepada mempelai" required></textarea>
                             </div>
                             <div class="mb-3">                            
                                 <button class="btn btn-primary" id="submit-ucapan" type="submit">Kirimkan Ucapan</button>
@@ -379,10 +379,14 @@ function reloadDataUcapan() {
     const urlGetUcapan = "<?= url('/my-wedding-invitation/ucapan/get');?>"
     $.get(urlGetUcapan, function(response, status){
         var result = JSON.parse(response)
-        result.forEach(element => {
-            var tmpRes = '<div class="alert alert-primary d-flex align-items-center p-2" role="alert"><div class="col-12"><div style="float: right">'+element.datetime+'</div><b><i class="bi bi-chat-dots-fill" style="margin-right: 5px"></i>'+element.nama+'</b><br>'+element.ucapan+'</div></div>'
-            ucapanList.append(tmpRes)
-        });
+        if(result.length > 0){
+            result.forEach(element => {
+                var tmpRes = '<div class="alert alert-primary d-flex align-items-center p-2" role="alert"><div class="col-12"><div style="float: right">'+element.datetime+'</div><b><i class="bi bi-chat-dots-fill" style="margin-right: 5px"></i>'+element.nama+'</b><br>'+element.ucapan+'</div></div>'
+                ucapanList.append(tmpRes)
+            });
+        } else {
+            ucapanList.html('<div class="text-center">Jadilah yang pertama memberikan ucapan. :D</div>')            
+        }        
     })    
     
    
