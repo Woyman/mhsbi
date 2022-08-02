@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class WeddingController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('wedding');
+        $to = $request->get('to');
+        return view('wedding', ['to' =>  ucwords($to)]);
     }
 
     public function postUcapan(Request $request) 

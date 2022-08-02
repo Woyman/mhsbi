@@ -2,6 +2,29 @@
 
 @section('content')
 
+<cover id="cover">
+    <div class="overlay-opening">        
+    </div>
+    <div class="overlay-content">
+        <div class="guest_content">
+            <div class="text-center mt-2 font-lora">
+                Kepada Yth.
+            </div>
+            <div class="text-center mt-2">
+                <h1 class="font-jimmy-script" style="letter-spacing: 2px">
+                    {{ $to }}
+                </h1>
+            </div>
+            <div class="text-center mt-2 font-lora">
+                di tempat
+            </div>
+            <div class="text-center mt-2 font-lora">
+                <button class="btn btn-primary" id="open-ivitation"><i class="bi bi-map-fill"></i> Buka Undangan</button>
+            </div>
+        </div>
+    </div>
+</cover>
+
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex flex-column justify-content-center" style="padding-left: 0px !important;">
     <video autoplay muted loop id="myVideo">
@@ -252,8 +275,8 @@
     </section>
 
 
-<a href="#" class="music-player d-flex align-items-center justify-content-center">
-    <i class="bi bi-pause-fill">
+<a href="javascript:void(0)" class="music-player d-flex align-items-center justify-content-center" id="music-toogle">
+    <i class="bi bi-play-fill" id="icon-music-toogle">
     </i>
 
     <!-- <iframe src="{{ asset('assets/img/DAY6 - Man in a Movie Orchestra Cover Ver.mp3') }}" allow="autoplay" style="display:none" id="song"></iframe>  -->
@@ -276,7 +299,10 @@
 
 @section('js-content')
 
-<script>
+<script type="text/javascript" defer>
+
+var song = document.getElementById("song");
+var songIsPlay = false;
 
 (function () {
     const   second = 1000,
@@ -310,10 +336,6 @@
 
 // var song = document.getElementById("myAudio");
 // song.play()
-</script>
-
-<script type="text/javascript">
-    
 
 $( document ).ready(function() {
 
@@ -329,6 +351,24 @@ $( document ).ready(function() {
         })
     })
 
+    $('#open-ivitation').click(function(){
+        $('#cover').remove()
+        $('#icon-music-toogle').prop('class', 'bi bi-pause-fill')
+        song.play()
+        songIsPlay = true
+    })
+
+    $('#music-toogle').click(function(){
+        
+        songIsPlay = !songIsPlay
+        if(songIsPlay === true) {
+            $('#icon-music-toogle').prop('class', 'bi bi-play-fill')
+            song.pause()
+        } else {
+            $('#icon-music-toogle').prop('class', 'bi bi-pause-fill')
+            song.play()
+        }
+    })
     
 });
 
