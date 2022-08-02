@@ -319,7 +319,7 @@ $( document ).ready(function() {
 
     reloadDataUcapan()
 
-    $('#form-ucapan').submit(function(e){
+    $('#form-ucapan').submit(function(event){
         event.preventDefault();
 
         var formData = $("#form-ucapan").serializeArray();
