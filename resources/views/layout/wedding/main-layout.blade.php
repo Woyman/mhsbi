@@ -6,11 +6,6 @@
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}" data-pagespeed-no-defer></script>    
     @include('layout.wedding.meta-header')
     @include('layout.wedding.css-header')
-
-    
-
-    
-
 </head>
 
 <body style="background-color: #bcd1da"> 

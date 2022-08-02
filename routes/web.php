@@ -19,3 +19,4 @@ Route::get('/', function () {
 
 Route::get('/my-wedding-invitation', 'App\Http\Controllers\WeddingController@index');
 Route::post('/my-wedding-invitation/ucapan/post', 'App\Http\Controllers\WeddingController@postUcapan');
+Route::get('/my-wedding-invitation/ucapan/get', 'App\Http\Controllers\WeddingController@getUcapan');

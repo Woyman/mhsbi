@@ -79,6 +79,29 @@
     width: 100%;
 }
 
+.img-ornamen {
+    max-width: 586px;
+    width: 100%;
+}
+
+.music-player {
+    position: fixed;
+    right: 15px;
+    bottom: 60px;
+    z-index: 996;
+    background: #0563bb;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    transition: all 0.4s;
+}
+
+.music-player i {
+    font-size: 28px;
+    color: #fff;
+    line-height: 0;
+}
+
 
 @media (max-width: 992px) {
     .countdown-wrapper li {
@@ -102,6 +125,10 @@
 
     #hero::before{
         background-color: #bcd1da !important;
+    }
+
+    .img-ornamen {
+        width: 80%;
     }
 }
 

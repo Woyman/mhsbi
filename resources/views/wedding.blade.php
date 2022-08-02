@@ -97,10 +97,13 @@
         </div>
     </section>
 
-    <section>
+    <section style="padding: 20px 0 !important">
         <div class="container" data-aos="fade-up">            
-            <div class="d-flex justify-content-center">
-                <div class="d-flex">
+            <div class="d-flex flex-column justify-content-center">
+                <div class="d-flex justify-content-center">
+                    <img src="{{ asset('assets/img/ornamen.png') }}" class="img-ornamen"></img>
+                </div>
+                <div class="d-flex justify-content-center">
                     <p align="center" class="font-lora" style="max-width: 765px"><b>
                         "Dan segala sesuatu di alam semesta telah Kami ciptakan secara berpasang-pasangan untuk saling melengkapi. Yang demikian ini agar kamu selalu mengingat kekuasaan dan kebesaran Allah"
                         <br>
@@ -225,7 +228,7 @@
                 </div>
                 <div class="row my-2">
                     <div class="col-md-6 col-sm-12 mx-auto">
-                        <form id="form-ucapan" action="<?php echo url('/my-wedding-invitation/ucapan/post') ?>" method="POST">
+                        <form id="form-ucapan">
                             @csrf
                             <div class="mb-3">                                    
                                 <input type="text" name="nama" class="form-control" id="name" placeholder="Masukkan nama" required>
@@ -240,52 +243,8 @@
                     </div>
                 </div>
                 <div class="row my-2">
-                    <div class="col-md-6 col-sm-12 mx-auto" style="max-height: 450px; overflow:scroll">
-                        <div class="alert alert-primary d-flex align-items-center p-2" role="alert">                            
-                            <div>
-                                <div class="float-end">
-                                    Sabtu, 14/08/2022
-                                </div>
-                                <b><i class="bi bi-chat-dots-fill"></i> Name:</b><br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore atque blanditiis et sit! Odio, doloribus? Amet sunt, iste explicabo animi quas hic quod accusamus. Quisquam ipsam odit amet cum ea!
-                            </div>                            
-                        </div>
-                        <div class="alert alert-primary d-flex align-items-center p-2" role="alert">                            
-                            <div>
-                                <div class="float-end">
-                                    Sabtu, 14/08/2022
-                                </div>
-                                <b><i class="bi bi-chat-dots-fill"></i> Name:</b><br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore atque blanditiis et sit! Odio, doloribus? Amet sunt, iste explicabo animi quas hic quod accusamus. Quisquam ipsam odit amet cum ea!
-                            </div>                            
-                        </div>
-                        <div class="alert alert-primary d-flex align-items-center p-2" role="alert">                            
-                            <div>
-                                <div class="float-end">
-                                    Sabtu, 14/08/2022
-                                </div>
-                                <b><i class="bi bi-chat-dots-fill"></i> Name:</b><br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore atque blanditiis et sit! Odio, doloribus? Amet sunt, iste explicabo animi quas hic quod accusamus. Quisquam ipsam odit amet cum ea!
-                            </div>                            
-                        </div>
-                        <div class="alert alert-primary d-flex align-items-center p-2" role="alert">                            
-                            <div>
-                                <div class="float-end">
-                                    Sabtu, 14/08/2022
-                                </div>
-                                <b><i class="bi bi-chat-dots-fill"></i> Name:</b><br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore atque blanditiis et sit! Odio, doloribus? Amet sunt, iste explicabo animi quas hic quod accusamus. Quisquam ipsam odit amet cum ea!
-                            </div>                            
-                        </div>
-                        <div class="alert alert-primary d-flex align-items-center p-2" role="alert">                            
-                            <div>
-                                <div class="float-end">
-                                    Sabtu, 14/08/2022
-                                </div>
-                                <b><i class="bi bi-chat-dots-fill"></i> Name:</b><br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore atque blanditiis et sit! Odio, doloribus? Amet sunt, iste explicabo animi quas hic quod accusamus. Quisquam ipsam odit amet cum ea!
-                            </div>                            
-                        </div>
+                    <div class="col-md-6 col-sm-12 mx-auto" style="max-height: 450px; overflow:scroll" id="ucapan-list">
+                                                
                     </div>
                 </div>
             </div>
@@ -293,8 +252,17 @@
     </section>
 
 
+<a href="#" class="music-player d-flex align-items-center justify-content-center">
+    <i class="bi bi-pause-fill">
+    </i>
 
+    <!-- <iframe src="{{ asset('assets/img/DAY6 - Man in a Movie Orchestra Cover Ver.mp3') }}" allow="autoplay" style="display:none" id="song"></iframe>  -->
+    <audio id="song" loop="true" autoplay="true">
+		<source src="{{ asset('assets/img/DAY6 - Man in a Movie Orchestra Cover Ver.mp3') }}" type="audio/mp3">
+	</audio>
+</a>
 </main>
+
 
 @endsection
 
@@ -303,18 +271,7 @@
 @endprepend
 
 @push('scripts')
-<script type="text/javascript">
 
-$( document ).ready(function() {
-    $('#submit-ucapan').click(function(event){
-        event.preventDefault();
-
-        var formData = $("#form-ucapan").serializeArray();
-        console.log(formData)
-    })
-});
-
-</script>
 @endpush
 
 @section('js-content')
@@ -346,6 +303,51 @@ $( document ).ready(function() {
 
       }, 0)
   }());
+
+// window.onload = function() {
+//   var context = new AudioContext();
+// }
+
+// var song = document.getElementById("myAudio");
+// song.play()
+</script>
+
+<script type="text/javascript">
+    
+
+$( document ).ready(function() {
+
+    reloadDataUcapan()
+
+    $('#form-ucapan').submit(function(e){
+        event.preventDefault();
+
+        var formData = $("#form-ucapan").serializeArray();
+        const url = "<?= url('/my-wedding-invitation/ucapan/post');?>"
+        $.post(url, formData, function(response, status){
+            reloadDataUcapan()
+        })
+    })
+
+    
+});
+
+function reloadDataUcapan() {
+    var ucapanList = $('#ucapan-list');
+    ucapanList.html('');
+
+    const urlGetUcapan = "<?= url('/my-wedding-invitation/ucapan/get');?>"
+    $.get(urlGetUcapan, function(response, status){
+        var result = JSON.parse(response)
+        result.forEach(element => {
+            var tmpRes = '<div class="alert alert-primary d-flex align-items-center p-2" role="alert"><div class="col-12"><div style="float: right">'+element.datetime+'</div><b><i class="bi bi-chat-dots-fill" style="margin-right: 5px"></i>'+element.nama+'</b><br>'+element.ucapan+'</div></div>'
+            ucapanList.append(tmpRes)
+        });
+    })    
+    
+   
+
+}
 
 </script>
 

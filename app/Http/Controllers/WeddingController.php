@@ -23,8 +23,14 @@ class WeddingController extends Controller
         
         $ucapan = Ucapan::create($ucaparaArray);
         $ucapan->save();
+        echo json_encode(['status' => 'success', 'code' => 200]);
+    }
 
+    public function getUcapan() {
         $allUcapan = Ucapan::all()->toArray();
+        foreach($allUcapan as &$ucapan) {
+            $ucapan['datetime'] = date('d M Y', $ucapan['datetime']);
+        }
         echo json_encode($allUcapan);
     }
 }
