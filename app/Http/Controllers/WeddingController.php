@@ -9,7 +9,8 @@ class WeddingController extends Controller
 {
     public function index(Request $request)
     {
-        $to = ucwords($request->get('to')) ?? null;
+
+        $to = isset($request->get('to')) === true ? ucwords($request->get('to')) : null;
         return view('wedding', ['to' => $to ]);
     }
 
