@@ -7,6 +7,7 @@
     </div>
     <div class="overlay-content">
         <div class="guest_content">
+            @if($to !== null)
             <div class="text-center mt-2 font-lora">
                 Kepada Yth.
             </div>
@@ -18,6 +19,16 @@
             <div class="text-center mt-2 font-lora">
                 di tempat
             </div>
+            @else
+            <div class="text-center mt-2 font-lora">
+                Undagan Pernikahan
+            </div>
+            <div class="text-center mt-2">
+                <h1 class="font-jimmy-script" style="letter-spacing: 2px">
+                    Aini & Hasbi
+                </h1>
+            </div>
+            @endif
             <div class="text-center mt-2 font-lora">
                 <button class="btn btn-primary" id="open-ivitation"><i class="bi bi-map-fill"></i> Buka Undangan</button>
             </div>
