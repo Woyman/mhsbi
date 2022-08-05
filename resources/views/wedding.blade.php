@@ -155,7 +155,7 @@
                                 <div class="d-flex justify-content-center">                                         
                                     <div class="text-center font-lora">                                           
                                         <p>Sabtu, 20 Agustus 2022</p>
-                                        <p>Akad: 09.00 WIB</p>
+                                        <p>Akad: 06.00 WIB</p>
                                         <p>Resepsi: 09.00 - 12.00 WIB</p>
                                         <p>
                                             Lokasi:
