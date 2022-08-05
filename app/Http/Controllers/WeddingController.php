@@ -9,7 +9,7 @@ class WeddingController extends Controller
 {
     public function index(Request $request)
     {
-        $to = $request->get('to');
+        $to = $request->get('to') ?? null;
         return view('wedding', ['to' =>  ucwords($to)]);
     }
 
