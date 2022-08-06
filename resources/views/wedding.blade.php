@@ -159,7 +159,7 @@
                             <div class="d-flex justify-content-center flex-column">
                                 <div class="d-flex justify-content-center"> 
                                     <h1 class="font-jimmy-script"> 
-                                        Akad dan Resepsi
+                                        Akad dan Walimah
                                     </h1>                                        
                                 </div>
 
@@ -196,7 +196,7 @@
                                     <div class="d-flex justify-content-center">                                         
                                     <div class="text-center font-lora">                                           
                                         <p>Senin, 22 Agustus 2022</p>
-                                        <p>09.00 - 12.00 WIB</p>
+                                        <p>10.00 - 14.00 WIB</p>
                                         <p>
                                             Lokasi:
                                             <br>
@@ -240,6 +240,13 @@
                         <div class="d-flex justify-content-center"> 
                             <p class="font-lora"> 
                                 Beserta kedua keluarga besar mempelai
+                            </p>                                                                               
+                        </div>
+                        <div class="d-flex justify-content-center"> 
+                            <p class="font-lora" style="font-size: 14px"> 
+                                <b>
+                                    *Tanpa mengurangi rasa hormat kami, mohon maaf kami tidak menerima sumbangan untuk acara ini*
+                                </b>
                             </p>                                                                               
                         </div>
                     </div>
