@@ -155,7 +155,7 @@
             <div class="card p-3 mb-3 shadow" style="border-radius: 1.5rem">
                 <div  class="row my-2">
                     <div class="col-lg-6 col-sm-12">
-                        <div class="card p-3 mb-3 rounded-3">
+                        <div class="card p-3 mb-3 rounded-3" style="height: 350px">
                             <div class="d-flex justify-content-center flex-column">
                                 <div class="d-flex justify-content-center"> 
                                     <h1 class="font-jimmy-script"> 
@@ -185,7 +185,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-12">
-                        <div class="card p-3 rounded-3">
+                        <div class="card p-3 rounded-3" style="height: 350px">
                             <div class="d-flex justify-content-center flex-column">
                                     <div class="d-flex justify-content-center"> 
                                         <h1 class="font-jimmy-script"> 
