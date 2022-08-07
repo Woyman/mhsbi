@@ -279,7 +279,7 @@
                                 <textarea row="5" type="text" name="ucapan" class="form-control" id="ucapan" placeholder="Ucapan kepada mempelai" required></textarea>
                             </div>
                             <div class="mb-3">                            
-                                <button class="btn btn-primary" id="submit-ucapan" type="submit">Kirimkan Ucapan</button>
+                                <button class="btn btn-primary" id="submit-ucapan" data-bs-target="#successUcapan" type="submit">Kirimkan Ucapan</button>
                             </div>
                         </form>
                     </div>
@@ -303,6 +303,21 @@
 		<source src="{{ asset('assets/img/DAY6 - Man in a Movie Orchestra Cover Ver.mp3') }}" type="audio/mp3">
 	</audio>
 </a>
+
+<div class="modal fade" id="successUcapan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        Terima Kasih sudah memberikan ucapan. :D
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </main>
 
 
@@ -358,6 +373,9 @@ var songIsPlay = false;
 
 $( document ).ready(function() {
 
+    var ModalUcapan =  new bootstrap.Modal(document.getElementById('successUcapan'))
+    var name = $('#name')
+    var ucapan = $('#ucapan')
     reloadDataUcapan()
 
     $('#form-ucapan').submit(function(event){
@@ -366,7 +384,11 @@ $( document ).ready(function() {
         var formData = $("#form-ucapan").serializeArray();
         const url = "<?= url('/my-wedding-invitation/ucapan/post');?>"
         $.post(url, formData, function(response, status){
+
             reloadDataUcapan()
+            ModalUcapan.show()
+            name.val('')
+            ucapan.val('')
         })
     })
 
@@ -374,7 +396,7 @@ $( document ).ready(function() {
         $('#cover').remove()
         $('#icon-music-toogle').prop('class', 'bi bi-pause-fill')
         song.play()
-        songIsPlay = true
+        songIsPlay = false
     })
 
     $('#music-toogle').click(function(){

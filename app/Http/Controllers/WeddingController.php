@@ -29,7 +29,7 @@ class WeddingController extends Controller
     }
 
     public function getUcapan() {
-        $allUcapan = Ucapan::all()->toArray();
+        $allUcapan = Ucapan::orderBy('datetime', 'desc')->get();
         foreach($allUcapan as &$ucapan) {
             $ucapan['datetime'] = date('d M Y', $ucapan['datetime']);
         }
