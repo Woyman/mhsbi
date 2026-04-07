@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-onepage",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "dev": "serve . -l 5173",
+    "start": "serve . -l 5173",
+    "build": "rm -rf dist && mkdir -p dist && cp index.html dist/index.html && cp -R assets dist/",
+    "preview": "serve dist -l 4173"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

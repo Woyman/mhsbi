@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammad Hasbi Habibi | Web Developer</title>
+    <meta
+      name="description"
+      content="Muhammad Hasbi Habibi, web developer Yogyakarta. Banyak pakai Laravel &amp; Vue; full time, plus freelance kalau waktu dan scope cocok."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
+            },
+            colors: {
+              surface: {
+                DEFAULT: "rgb(250 250 249)",
+                dark: "rgb(15 23 24)",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .glass {
+          @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-stone-200/80 dark:border-slate-700/80;
+        }
+      }
+      @layer components {
+        .skill-pill {
+          @apply px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-200/80 text-stone-800 dark:bg-slate-800 dark:text-stone-300;
+        }
+        .tech-tag {
+          @apply px-2.5 py-1 rounded-md text-xs font-medium bg-stone-100 dark:bg-slate-800/80 text-stone-700 dark:text-stone-400 border border-stone-200/80 dark:border-slate-600/50;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="font-sans antialiased text-stone-800 dark:text-stone-200 bg-stone-50 dark:bg-surface-dark min-h-screen flex flex-col flex-wrap transition-colors duration-300"
+  >
+    <!-- ===== EDIT KONTEN DI BAWAH INI (satu file) ===== -->
+    <script>
+      const THEME_KEY = "portfolio-theme";
+      function applyTheme(theme) {
+        const root = document.documentElement;
+        if (theme === "dark") root.classList.add("dark");
+        else root.classList.remove("dark");
+        localStorage.setItem(THEME_KEY, theme);
+        const btn = document.getElementById("theme-toggle");
+        if (btn) {
+          btn.setAttribute("aria-label", theme === "dark" ? "Mode terang" : "Mode gelap");
+          btn.innerHTML =
+            theme === "dark"
+              ? '<span class="text-lg" aria-hidden="true">☀️</span>'
+              : '<span class="text-lg" aria-hidden="true">🌙</span>';
+        }
+      }
+      function initTheme() {
+        const saved = localStorage.getItem(THEME_KEY);
+        if (saved === "dark" || saved === "light") applyTheme(saved);
+        else if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+          applyTheme("dark");
+        else applyTheme("light");
+      }
+      function toggleTheme() {
+        const isDark = document.documentElement.classList.contains("dark");
+        applyTheme(isDark ? "light" : "dark");
+      }
+      document.addEventListener("DOMContentLoaded", initTheme);
+    </script>
+
+    <header
+      class="fixed top-0 inset-x-0 z-50 glass border-b-0 border-b-stone-200/50 dark:border-b-slate-800/50 shadow-sm dark:shadow-none"
+    >
+      <div
+        class="max-w-3xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14 sm:h-16"
+      >
+        <a href="#bio" class="font-semibold text-stone-900 dark:text-white tracking-tight"
+          >.mhsbi</a
+        >
+        <nav class="flex items-center gap-1 sm:gap-4 text-sm font-medium">
+          <a
+            href="#bio"
+            class="px-2 py-1 rounded-lg text-stone-600 dark:text-stone-400 hover:bg-stone-200/60 dark:hover:bg-slate-800/80 transition-colors"
+            >Bio</a
+          >
+          <a
+            href="#projects"
+            class="px-2 py-1 rounded-lg text-stone-600 dark:text-stone-400 hover:bg-stone-200/60 dark:hover:bg-slate-800/80 transition-colors"
+            >Project</a
+          >
+          <a
+            href="#experience"
+            class="px-2 py-1 rounded-lg text-stone-600 dark:text-stone-400 hover:bg-stone-200/60 dark:hover:bg-slate-800/80 transition-colors"
+            >Karier</a
+          >
+          <button
+            type="button"
+            id="theme-toggle"
+            onclick="toggleTheme()"
+            class="ml-1 flex items-center justify-center w-10 h-10 rounded-full bg-stone-200/80 dark:bg-slate-800 text-stone-800 dark:text-stone-100 hover:bg-stone-300/80 dark:hover:bg-slate-700 transition-colors"
+          >
+            <span class="text-lg" aria-hidden="true">🌙</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-20 space-y-20 sm:space-y-28">
+      <!-- Bio -->
+      <section id="bio" class="scroll-mt-24">
+        <div class="glass rounded-2xl p-6 sm:p-8 shadow-lg shadow-stone-200/40 dark:shadow-none">
+          <div class="flex flex-col sm:flex-row gap-8 sm:gap-10 items-start">
+            <div class="shrink-0 mx-auto sm:mx-0">
+              <div
+                class="w-36 h-36 sm:w-40 sm:h-40 shrink-0 rounded-full overflow-hidden ring-4 ring-teal-500/20 dark:ring-teal-400/25 shadow-md"
+              >
+                <img
+                  src="assets/pp.jpeg"
+                  width="160"
+                  height="160"
+                  alt="Muhammad Hasbi Habibi"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <div class="flex-1 text-center sm:text-left min-w-0">
+              <p class="text-teal-600 dark:text-teal-400 text-sm font-semibold uppercase tracking-wider mb-1">
+                Halo, perkenalkan saya
+              </p>
+              <h1 class="text-3xl sm:text-4xl font-bold text-stone-900 dark:text-white tracking-tight mb-2">
+                Muhammad Hasbi Habibi
+              </h1>
+              <p class="text-sm text-stone-500 dark:text-stone-500 mb-4">
+                Yogyakarta, Indonesia
+              </p>
+              <div class="flex flex-wrap gap-2 justify-center sm:justify-start mb-4">
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-semibold bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-200"
+                  >Web Developer</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-900 dark:bg-amber-950/60 dark:text-amber-200"
+                  >Laravel &amp; Vue.js</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-semibold bg-violet-100 text-violet-800 dark:bg-violet-950 dark:text-violet-200"
+                  >Freelancer · Terbuka proyek</span
+                >
+              </div>
+              <p class="text-stone-600 dark:text-stone-400 leading-relaxed mb-4">
+                Seorang Web Developer berpengalaman dalam pengembangan, mendesain, dan pemeliharaan website interaktif.
+                Biasa membangun website company profile dan website dashboard dinamis, laporan yang kompleks dengan
+                teknologi terbaru seperti
+                <strong class="font-medium text-stone-700 dark:text-stone-300">Laravel</strong>,
+                <strong class="font-medium text-stone-700 dark:text-stone-300">Vue.js</strong>,
+                <strong class="font-medium text-stone-700 dark:text-stone-300">WordPress</strong>, dll. Ahli dalam
+                filtering data, sorting, API Integration, dan tracing &amp; solving bug. Kolaborasi untuk membuat
+                project, kontak aja langsung hehe.
+              </p>
+              <div id="kontak" class="mb-6 scroll-mt-28">
+                <p
+                  class="text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-500 mb-3 text-center sm:text-left"
+                >
+                  Kontak
+                </p>
+                <ul
+                  class="flex flex-wrap items-center gap-3 justify-center sm:justify-start list-none p-0 m-0"
+                  role="list"
+                >
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/muhammad-hasbi-habibi-437131139/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-stone-200/90 text-stone-700 shadow-sm transition-colors hover:bg-[#0A66C2] hover:text-white dark:bg-slate-800 dark:text-stone-200 dark:hover:bg-[#0A66C2]"
+                      aria-label="LinkedIn"
+                    >
+                      <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/woyman/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-stone-200/90 text-stone-700 shadow-sm transition-colors hover:bg-stone-900 hover:text-white dark:bg-slate-800 dark:text-stone-200 dark:hover:bg-white dark:hover:text-stone-900"
+                      aria-label="GitHub"
+                    >
+                      <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                          fill-rule="evenodd"
+                          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.248.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://wa.me/6281330999459"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-stone-200/90 text-stone-700 shadow-sm transition-colors hover:bg-[#25D366] hover:text-white dark:bg-slate-800 dark:text-stone-200 dark:hover:bg-[#25D366]"
+                      aria-label="WhatsApp"
+                    >
+                      <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="mailto:alparasetiana@gmail.com"
+                      class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-stone-200/90 text-stone-700 shadow-sm transition-colors hover:bg-teal-600 hover:text-white dark:bg-slate-800 dark:text-stone-200 dark:hover:bg-teal-500"
+                      aria-label="Email alparasetiana@gmail.com"
+                    >
+                      <svg
+                        class="h-5 w-5 shrink-0"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-500 mb-2">
+                  Skill
+                </p>
+                <div class="flex flex-wrap gap-2 justify-center sm:justify-start">
+                  <span class="skill-pill">Laravel</span>
+                  <span class="skill-pill">Vue.js</span>
+                  <span class="skill-pill">PHP</span>
+                  <span class="skill-pill">JavaScript</span>
+                  <span class="skill-pill">REST API</span>
+                  <span class="skill-pill">MySQL</span>
+                  <span class="skill-pill">MongoDB</span>
+                  <span class="skill-pill">Git</span>
+                  <span class="skill-pill">Agile</span>
+                  <span class="skill-pill">Dashboard &amp; reporting</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects: <details> native expand/tutup; default terbuka. Grid 3 kolom di lg+. -->
+      <section id="projects" class="scroll-mt-24">
+        <details class="group" open>
+          <summary
+            class="cursor-pointer list-none select-none rounded-xl -mx-1 px-1 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50 dark:focus-visible:ring-offset-surface-dark [&::-webkit-details-marker]:hidden"
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div class="min-w-0 text-left">
+                <h2 class="text-2xl font-bold text-stone-900 dark:text-white">Project &amp; Portofolio</h2>
+                <p class="text-stone-600 dark:text-stone-400 text-sm mt-2 max-w-2xl">
+                  Berikut adalah beberapa project yang pernah saya kerjakan.
+                </p>
+              </div>
+              <span
+                class="mt-1 shrink-0 text-stone-500 dark:text-stone-400 transition-transform duration-200 group-open:rotate-180"
+                aria-hidden="true"
+              >
+                <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </span>
+            </div>
+          </summary>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+            <article
+              class="glass rounded-xl p-5 flex flex-col h-full hover:border-teal-500/30 dark:hover:border-teal-500/20 transition-colors"
+            >
+              <div class="flex flex-col gap-3 flex-1 min-h-0">
+                <div
+                  class="-mx-5 -mt-5 mb-1 overflow-hidden rounded-t-xl border-b border-stone-200/70 dark:border-slate-600/50"
+                >
+                  <img
+                    src="https://cdn3.f-cdn.com/files/download/293125361/tubestream.jpg"
+                    alt="Pratinjau aplikasi Tubestream"
+                    width="800"
+                    height="450"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-40 sm:h-48 object-cover object-top"
+                  />
+                </div>
+                <h3 class="text-base font-semibold text-stone-900 dark:text-white leading-snug">Tubestream</h3>
+                <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed flex-1">
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">Tubestream</strong> adalah aplikasi
+                  berbasis <strong class="font-medium text-stone-700 dark:text-stone-300">website dan Android</strong>
+                  dengan fitur yang kompleks. Sebagai developer saya ikut
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">memelihara dan mengembangkan</strong>
+                  fitur: <strong class="font-medium text-stone-700 dark:text-stone-300">pencarian (search)</strong>,
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">filter data ganda</strong>,
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">sorting multi-kriteria</strong>,
+                  penambahan fitur baru,
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">analisis &amp; perbaikan bug</strong>,
+                  serta
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">deployment</strong> hingga lingkungan
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">staging</strong>.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="tech-tag">Laravel</span>
+                  <span class="tech-tag">Vue.js</span>
+                  <span class="tech-tag">Dashboard &amp; Report</span>
+                  <span class="tech-tag">Frontend &amp; Backend Development</span>
+                </div>
+              </div>
+            </article>
+            <article
+              class="glass rounded-xl p-5 flex flex-col h-full hover:border-teal-500/30 dark:hover:border-teal-500/20 transition-colors"
+            >
+              <div class="flex flex-col gap-3 flex-1 min-h-0">
+                <div
+                  class="-mx-5 -mt-5 mb-1 overflow-hidden rounded-t-xl border-b border-stone-200/70 dark:border-slate-600/50"
+                >
+                  <img
+                    src="https://cdn5.f-cdn.com/files/download/293125187/pesanlokal.jpg"
+                    alt="Pratinjau dashboard aplikasi PesanLokal"
+                    width="800"
+                    height="450"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-40 sm:h-48 object-cover object-top"
+                  />
+                </div>
+                <h3 class="text-base font-semibold text-stone-900 dark:text-white leading-snug">PesanLokal</h3>
+                <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed flex-1">
+                  Aplikasi <strong class="font-medium text-stone-700 dark:text-stone-300">PesanLokal</strong>: saya
+                  mengerjakan bagian <strong class="font-medium text-stone-700 dark:text-stone-300">dashboard</strong>
+                  untuk aplikasi Android yang diakses melalui website. Di dashboard tersedia laporan
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">order</strong>,
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">penjualan (sales)</strong>,
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">pelanggan (customer)</strong>, dan
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">produk</strong> dengan filter rentang
+                  waktu yang fleksibel, serta fitur
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">rekap penjualan</strong>
+                  dengan berbagai periode waktu.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="tech-tag">Laravel</span>
+                  <span class="tech-tag">Vue.js</span>
+                  <span class="tech-tag">Dashboard &amp; Report</span>
+                  <span class="tech-tag">Android</span>
+                </div>
+              </div>
+            </article>
+            <article
+              class="glass rounded-xl p-5 flex flex-col h-full hover:border-teal-500/30 dark:hover:border-teal-500/20 transition-colors"
+            >
+              <div class="flex flex-col gap-3 flex-1 min-h-0">
+                <div
+                  class="-mx-5 -mt-5 mb-1 overflow-hidden rounded-t-xl border-b border-stone-200/70 dark:border-slate-600/50"
+                >
+                  <img
+                    src="https://cdn5.f-cdn.com/files/download/84890002/bmtpasbantul.png"
+                    alt="Pratinjau website company profile BMT PAS (bmtpas.com)"
+                    width="800"
+                    height="450"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-40 sm:h-48 object-cover object-top"
+                  />
+                </div>
+                <h3 class="text-base font-semibold text-stone-900 dark:text-white leading-snug">
+                  Company profile BMT PAS · bmtpas.com
+                </h3>
+                <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed flex-1">
+                  Website company profile yang awalnya dibangun dengan PHP native; karena kebutuhan klien untuk
+                  mengelola postingan dan konten, solusi dipindahkan ke WordPress. Di dalamnya tersedia
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">kalkulator zakat</strong> dan
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">simulasi perhitungan pembiayaan</strong>.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="tech-tag">Freelance</span>
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">Backend Development</span>
+                  <span class="tech-tag">WordPress</span>
+                </div>
+                <a
+                  href="https://bmtpas.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm font-medium text-teal-600 dark:text-teal-400 hover:underline mt-2 inline-block"
+                  >bmtpas.com →</a
+                >
+              </div>
+            </article>
+            <article
+              class="glass rounded-xl p-5 flex flex-col h-full hover:border-teal-500/30 dark:hover:border-teal-500/20 transition-colors"
+            >
+              <div class="flex flex-col gap-3 flex-1 min-h-0">
+                <div
+                  class="-mx-5 -mt-5 mb-1 overflow-hidden rounded-t-xl border-b border-stone-200/70 dark:border-slate-600/50"
+                >
+                  <img
+                    src="https://cdn2.f-cdn.com/files/download/293124685/smkmuhpakem.png"
+                    alt="Pratinjau website company profile SMK Muhammadiyah Pakem (smkmuhpakem.sch.id)"
+                    width="800"
+                    height="450"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-40 sm:h-48 object-cover object-top"
+                  />
+                </div>
+                <h3 class="text-base font-semibold text-stone-900 dark:text-white leading-snug">
+                  Company Profile SMK Muhammadiyah Pakem · smkmuhpakem.sch.id
+                </h3>
+                <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed flex-1">
+                  Website company profile berbasis WordPress dengan fitur halaman profil, berita, galeri, bursa kerja,
+                  alumni, serta chat WhatsApp untuk SPMB.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="tech-tag">Freelance</span>
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">Backend Development</span>
+                  <span class="tech-tag">WordPress</span>
+                </div>
+                <a
+                  href="https://smkmuhpakem.sch.id"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm font-medium text-teal-600 dark:text-teal-400 hover:underline mt-2 inline-block"
+                  >smkmuhpakem.sch.id →</a
+                >
+              </div>
+            </article>
+            <article
+              class="glass rounded-xl p-5 flex flex-col h-full hover:border-teal-500/30 dark:hover:border-teal-500/20 transition-colors"
+            >
+              <div class="flex flex-col gap-3 flex-1 min-h-0">
+                <div
+                  class="-mx-5 -mt-5 mb-1 overflow-hidden rounded-t-xl border-b border-stone-200/70 dark:border-slate-600/50"
+                >
+                  <img
+                    src="https://cdn6.f-cdn.com/files/download/293124338/ibumengaji.jpg"
+                    alt="Pratinjau website company profile Ibu Mengaji (ibumengaji.com)"
+                    width="800"
+                    height="450"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-40 sm:h-48 object-cover object-top"
+                  />
+                </div>
+                <h3 class="text-base font-semibold text-stone-900 dark:text-white leading-snug">
+                  Company profile Ibu Mengaji · ibumengaji.com
+                </h3>
+                <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed flex-1">
+                  Website company profile berbasis WordPress dengan fitur postingan, halaman produk, halaman profil, dan
+                  galeri.                   Tersedia
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">kalkulator simulasi zakat</strong>.
+                  Sebelumnya memiliki fitur donasi yang sudah tidak dipakai lagi.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="tech-tag">Freelance</span>
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">Backend Development</span>
+                  <span class="tech-tag">WordPress</span>
+                </div>
+                <a
+                  href="https://ibumengaji.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm font-medium text-teal-600 dark:text-teal-400 hover:underline mt-2 inline-block"
+                  >ibumengaji.com →</a
+                >
+              </div>
+            </article>
+            <article
+              class="glass rounded-xl p-5 flex flex-col h-full hover:border-teal-500/30 dark:hover:border-teal-500/20 transition-colors"
+            >
+              <div class="flex flex-col gap-3 flex-1 min-h-0">
+                <div
+                  class="-mx-5 -mt-5 mb-1 overflow-hidden rounded-t-xl border-b border-stone-200/70 dark:border-slate-600/50"
+                >
+                  <img
+                    src="https://cdn2.f-cdn.com/files/download/293124906/sd-muh-sapen.png"
+                    alt="Pratinjau website company profile SD Muhammadiyah Sapen Yogyakarta (sdmuhsapen-yog.sch.id)"
+                    width="800"
+                    height="450"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-40 sm:h-48 object-cover object-top"
+                  />
+                </div>
+                <h3 class="text-base font-semibold text-stone-900 dark:text-white leading-snug">
+                  Company profile SD Muhammadiyah Sapen · sdmuhsapen-yog.sch.id
+                </h3>
+                <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed flex-1">
+                  Website company profile berbasis
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">Laravel</strong> dengan halaman profil
+                  sekolah (tentang kami, sambutan kepala sekolah, struktur, profil guru &amp; karyawan, dan informasi
+                  terkait), halaman fasilitas, program sekolah, serta berita. Dilengkapi alur
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">PPDB via chat WhatsApp</strong> dan
+                  dukungan <strong class="font-medium text-stone-700 dark:text-stone-300">dua bahasa</strong>
+                  (Indonesia &amp; Inggris). Pada proyek ini kontribusi utama saya ada di sisi
+                  <strong class="font-medium text-stone-700 dark:text-stone-300">tampilan (front end)</strong>.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="tech-tag">Freelance</span>
+                  <span class="tech-tag">Laravel</span>
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">Frontend Development</span>
+                  <span class="tech-tag">Tailwind</span>
+                </div>
+                <a
+                  href="https://www.sdmuhsapen-yog.sch.id/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm font-medium text-teal-600 dark:text-teal-400 hover:underline mt-2 inline-block"
+                  >sdmuhsapen-yog.sch.id →</a
+                >
+              </div>
+            </article>
+          </div>
+        </details>
+      </section>
+
+      <!-- Experience & Education -->
+      <section id="experience" class="scroll-mt-24">
+        <h2 class="text-2xl font-bold text-stone-900 dark:text-white mb-2">Pengalaman &amp; Pendidikan</h2>
+        <p class="text-stone-600 dark:text-stone-400 text-sm mb-8 max-w-xl">
+          Berikut adalah pengalaman karir professional dan pendidikan formal saya.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-10 sm:gap-8">
+          <details class="group min-w-0">
+            <summary
+              class="cursor-pointer list-none select-none rounded-lg -mx-1 px-1 py-2 mb-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50 dark:focus-visible:ring-offset-surface-dark [&::-webkit-details-marker]:hidden"
+            >
+              <div class="flex items-center justify-between gap-3">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
+                  Pengalaman
+                </h3>
+                <span
+                  class="shrink-0 text-stone-500 dark:text-stone-400 transition-transform duration-200 group-open:rotate-180"
+                  aria-hidden="true"
+                >
+                  <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </summary>
+            <div class="relative mt-4">
+              <div
+                class="pointer-events-none absolute bottom-1 left-4 top-2 w-px bg-stone-200 dark:bg-slate-700"
+                aria-hidden="true"
+              ></div>
+              <ol class="relative space-y-8">
+                <li class="flex gap-4 sm:gap-5">
+                  <div class="flex w-8 shrink-0 justify-center pt-1.5" aria-hidden="true">
+                    <span
+                      class="relative z-[1] mt-0.5 h-3 w-3 shrink-0 rounded-full border-2 border-stone-50 bg-teal-500 shadow-[0_0_0_2px_rgb(15_23_24_/_0.06)] dark:border-surface-dark dark:bg-teal-400 dark:shadow-[0_0_0_2px_rgb(0_0_0_/_0.35)]"
+                    ></span>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">
+                      Jan 2020 — Sekarang
+                    </p>
+                    <p class="font-semibold text-stone-900 dark:text-white">Web Developer</p>
+                    <p class="text-sm text-stone-600 dark:text-stone-400">PT. Inosoft Trans Sistem · Indonesia</p>
+                    <p class="text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
+                      Pengembangan dan pemeliharaan aplikasi web interaktif: fitur pencarian, filter data, sorting multi-kriteria, integrasi API, dan manajemen basis data relasional. Analisis &amp; perbaikan bug untuk stabilitas. Kolaborasi agile dengan Laravel, Vue.js, dan praktik Git.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex gap-4 sm:gap-5">
+                  <div class="flex w-8 shrink-0 justify-center pt-1.5" aria-hidden="true">
+                    <span
+                      class="relative z-[1] mt-0.5 h-3 w-3 shrink-0 rounded-full border-2 border-stone-50 bg-teal-500 shadow-[0_0_0_2px_rgb(15_23_24_/_0.06)] dark:border-surface-dark dark:bg-teal-400 dark:shadow-[0_0_0_2px_rgb(0_0_0_/_0.35)]"
+                    ></span>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">
+                      Sep 2017 — Sekarang
+                    </p>
+                    <p class="font-semibold text-stone-900 dark:text-white">Web Developer · Freelance</p>
+                    <p class="text-sm text-stone-600 dark:text-stone-400">Self-employed · Yogyakarta &amp; sekitarnya</p>
+                    <p class="text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
+                      Desain &amp; pengembangan website serta aplikasi web responsif sesuai kebutuhan klien, integrasi API, deployment aman, dukungan teknis, dan perbaikan berkelanjutan pasca rilis.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex gap-4 sm:gap-5">
+                  <div class="flex w-8 shrink-0 justify-center pt-1.5" aria-hidden="true">
+                    <span
+                      class="relative z-[1] mt-0.5 h-3 w-3 shrink-0 rounded-full border-2 border-stone-50 bg-teal-500 shadow-[0_0_0_2px_rgb(15_23_24_/_0.06)] dark:border-surface-dark dark:bg-teal-400 dark:shadow-[0_0_0_2px_rgb(0_0_0_/_0.35)]"
+                    ></span>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">
+                      Jul 2020 — Mei 2021
+                    </p>
+                    <p class="font-semibold text-stone-900 dark:text-white">Full-stack Developer</p>
+                    <p class="text-sm text-stone-600 dark:text-stone-400">PesanLokal</p>
+                    <p class="text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
+                      Implementasi dashboard untuk pelanggan &amp; merchant (Vue.js &amp; Laravel), laporan berkala (mingguan/bulanan/tahunan), serta analisis bug untuk kestabilan fitur.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex gap-4 sm:gap-5">
+                  <div class="flex w-8 shrink-0 justify-center pt-1.5" aria-hidden="true">
+                    <span
+                      class="relative z-[1] mt-0.5 h-3 w-3 shrink-0 rounded-full border-2 border-stone-50 bg-teal-500 shadow-[0_0_0_2px_rgb(15_23_24_/_0.06)] dark:border-surface-dark dark:bg-teal-400 dark:shadow-[0_0_0_2px_rgb(0_0_0_/_0.35)]"
+                    ></span>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">
+                      Sep 2017 — Des 2018
+                    </p>
+                    <p class="font-semibold text-stone-900 dark:text-white">Web Programmer</p>
+                    <p class="text-sm text-stone-600 dark:text-stone-400">TechnoGIS Indonesia · Yogyakarta</p>
+                    <p class="text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
+                      Pengembangan website berbasis peta dengan marker dan layer sesuai kebutuhan klien; analisis dan perbaikan bug pada fitur.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </details>
+          <details class="group min-w-0">
+            <summary
+              class="cursor-pointer list-none select-none rounded-lg -mx-1 px-1 py-2 mb-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50 dark:focus-visible:ring-offset-surface-dark [&::-webkit-details-marker]:hidden"
+            >
+              <div class="flex items-center justify-between gap-3">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                  Pendidikan
+                </h3>
+                <span
+                  class="shrink-0 text-stone-500 dark:text-stone-400 transition-transform duration-200 group-open:rotate-180"
+                  aria-hidden="true"
+                >
+                  <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </summary>
+            <div class="relative mt-4">
+              <div
+                class="pointer-events-none absolute bottom-1 left-4 top-2 w-px bg-stone-200 dark:bg-slate-700"
+                aria-hidden="true"
+              ></div>
+              <ol class="relative space-y-8">
+                <li class="flex gap-4 sm:gap-5">
+                  <div class="flex w-8 shrink-0 justify-center pt-1.5" aria-hidden="true">
+                    <span
+                      class="relative z-[1] mt-0.5 h-3 w-3 shrink-0 rounded-full border-2 border-stone-50 bg-amber-500 shadow-[0_0_0_2px_rgb(15_23_24_/_0.06)] dark:border-surface-dark dark:bg-amber-400 dark:shadow-[0_0_0_2px_rgb(0_0_0_/_0.35)]"
+                    ></span>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">2016 — 2021</p>
+                    <p class="font-semibold text-stone-900 dark:text-white">Sarjana (S1) · Informatika</p>
+                    <p class="text-sm text-stone-600 dark:text-stone-400">Universitas Amikom Yogyakarta</p>
+                    <p class="text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
+                      Fondasi kuat di pengembangan perangkat lunak dan aplikasi web sesuai kurikulum teknik informatika.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex gap-4 sm:gap-5">
+                  <div class="flex w-8 shrink-0 justify-center pt-1.5" aria-hidden="true">
+                    <span
+                      class="relative z-[1] mt-0.5 h-3 w-3 shrink-0 rounded-full border-2 border-stone-50 bg-amber-500 shadow-[0_0_0_2px_rgb(15_23_24_/_0.06)] dark:border-surface-dark dark:bg-amber-400 dark:shadow-[0_0_0_2px_rgb(0_0_0_/_0.35)]"
+                    ></span>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">2013 — 2016</p>
+                    <p class="font-semibold text-stone-900 dark:text-white">Rekayasa Perangkat Lunak</p>
+                    <p class="text-sm text-stone-600 dark:text-stone-400">SMK Telekomunikasi Tunas Harapan</p>
+                    <p class="text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
+                      Pendidikan menengah kejuruan di bidang RPL sebagai dasar memasuki industri software.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="border-t border-stone-200 dark:border-slate-800 py-8 text-center text-sm text-stone-500 dark:text-stone-500"
+    >
+      <p>© <span id="y"></span> Muhammad Hasbi Habibi</p>
+    </footer>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
