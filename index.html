@@ -52,7 +52,16 @@
   <body
     class="font-sans antialiased text-stone-800 dark:text-stone-200 bg-stone-50 dark:bg-surface-dark min-h-screen flex flex-col flex-wrap transition-colors duration-300"
   >
-    <!-- ===== EDIT KONTEN DI BAWAH INI (satu file) ===== -->
+    <!--
+      Struktur satu halaman (urutan vertikal):
+      1) Header tetap — brand .mhsbi (#bio), navigasi Bio | Project | Karier, toggle tema gelap/terang.
+      2) #bio — kartu glass: foto profil, nama & lokasi, pill peran, paragraf intro, blok #kontak (ikon LinkedIn,
+         GitHub, WhatsApp, email), daftar skill.
+      3) #projects — <details> (buka/tutup): grid kartu portofolio (gambar, deskripsi, tag, tautan).
+      4) #experience — grid dua kolom <details> terpisah: riwayat kerja (timeline) & pendidikan (timeline).
+      5) Footer — hak cipta / nama.
+      Edit konten utamanya di markup section di bawah; gaya pakai utilitas Tailwind + blok <style> di <head>.
+    -->
     <script>
       const THEME_KEY = "portfolio-theme";
       function applyTheme(theme) {
