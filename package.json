@@ -1,8 +1,8 @@
 {
-  "name": "portfolio-onepage",
+  "name": "mhsbi-portfolio-onepage",
   "private": true,
   "engines": {
-    "node": ">=18.0.0"
+    "node": "20.x"
   },
   "scripts": {
     "dev": "serve . -l 5173",
