@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "serve . -l 5173",
     "start": "serve . -l 5173",
-    "build": "rm -rf dist && mkdir -p dist && cp index.html dist/index.html && cp -R assets dist/",
-    "preview": "serve dist -l 4173"
+    "build": "rm -rf public && mkdir -p public && cp index.html public/index.html && cp -R assets public/",
+    "preview": "serve public -l 4173"
   },
   "devDependencies": {
     "serve": "^14.2.4"

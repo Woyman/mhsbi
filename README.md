@@ -61,13 +61,13 @@ Perintah `npm start` sama dengan `npm run dev`.
 
 ## Build untuk production
 
-Build menyalin `index.html` dan folder `assets/` ke **`dist/`**:
+Build menyalin `index.html` dan folder `assets/` ke folder **`public/`** di root project:
 
 ```bash
 npm run build
 ```
 
-Hasil siap deploy ada di folder **`dist/`** (bukan file di root).
+Hasil siap deploy ada di **`public/`** (bukan file di root).
 
 ### Cek hasil build secara lokal
 
@@ -75,7 +75,7 @@ Hasil siap deploy ada di folder **`dist/`** (bukan file di root).
 npm run preview
 ```
 
-Lalu buka **http://localhost:4173** — ini melayani isi `dist/`, mirip environment production statis.
+Lalu buka **http://localhost:4173** — ini melayani isi `public/`, mirip environment production statis.
 
 ---
 
@@ -85,7 +85,7 @@ Ini situs **statis** (HTML, gambar lokal di `assets/`, plus gambar proyek dari U
 
 ### Yang di-upload ke server
 
-Setelah `npm run build`, **unggah seluruh isi folder `dist/`** ke **document root** web server (bukan folder `dist` itu sendiri sebagai subfolder, kecuali kamu memang ingin situs di subpath — lihat catatan di bawah).
+Setelah `npm run build`, **unggah seluruh isi folder `public/`** (di repo kamu) ke **document root** web server — misalnya isi `public/` ke `public_html` di shared hosting (nama folder di server bisa beda; yang penting isi file-nya).
 
 Struktur di server seharusnya mirip:
 
@@ -100,14 +100,14 @@ Struktur di server seharusnya mirip:
 ### Opsi umum
 
 1. **VPS + Nginx / Apache**  
-   - Upload isi `dist/` (misalnya dengan `rsync`, `scp`, SFTP, atau panel hosting).  
+   - Upload isi folder **`public/`** hasil build (misalnya dengan `rsync`, `scp`, SFTP, atau panel hosting).  
    - Arahkan `root` (Nginx) atau `DocumentRoot` (Apache) ke folder tersebut.
 
 2. **Shared hosting (cPanel, dll.)**  
-   - Pakai File Manager atau FTP: isi `public_html` (atau setara) dengan isi `dist/`.
+   - Pakai File Manager atau FTP: salin **isi** `public/` ke `public_html` (atau setara).
 
 3. **Platform static hosting** (Netlify, Vercel, Cloudflare Pages, GitHub Pages, dll.)  
-   - Set **publish directory** ke `dist`.  
+   - Set **publish directory** ke **`public`**.  
    - Build command: `npm run build` (jika platform menjalankan build di CI).
 
 ### Catatan path (subfolder)
@@ -120,7 +120,7 @@ Kalau tetap ingin melayankan dengan `serve` di VPS:
 
 ```bash
 npm ci --omit=dev   # atau npm install --omit=dev setelah build di mesin build
-npx serve dist -l 3000
+npx serve public -l 3000
 ```
 
 Lebih umum untuk production tetap memakai **Nginx/Apache** atau CDN di depannya.
@@ -131,5 +131,5 @@ Lebih umum untuk production tetap memakai **Nginx/Apache** atau CDN di depannya.
 |----------------|----------------------------------------------|
 | `npm install`  | Install dependency                            |
 | `npm run dev`  | Lokal dari root project (port 5173)         |
-| `npm run build`| Generate folder `dist/`                      |
-| `npm run preview` | Tes statis dari `dist/` (port 4173)      |
+| `npm run build`| Generate folder `public/`                   |
+| `npm run preview` | Tes statis dari `public/` (port 4173)    |
