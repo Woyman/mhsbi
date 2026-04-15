@@ -9,6 +9,7 @@
       WhatsApp cache preview lama — setelah deploy, tes ulang atau tambahkan ?v=1 di og:image jika perlu.
     -->
     <meta
+      id="meta-desc"
       name="description"
       content="Web developer Yogyakarta — Laravel, Vue.js &amp; WordPress. Company profile, dashboard &amp; laporan; filter data, sorting, API, debugging."
     />
@@ -18,9 +19,10 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mhsbi.vercel.app/" />
     <meta property="og:site_name" content="Muhammad Hasbi Habibi" />
-    <meta property="og:locale" content="id_ID" />
+    <meta id="meta-og-locale" property="og:locale" content="id_ID" />
     <meta property="og:title" content="Muhammad Hasbi Habibi | Web Developer" />
     <meta
+      id="meta-og-desc"
       property="og:description"
       content="Web developer Yogyakarta — Laravel, Vue.js &amp; WordPress. Company profile, dashboard &amp; laporan; filter data, sorting, API, debugging."
     />
@@ -33,6 +35,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Muhammad Hasbi Habibi | Web Developer" />
     <meta
+      id="meta-tw-desc"
       name="twitter:description"
       content="Web developer Yogyakarta — Laravel, Vue.js &amp; WordPress. Company profile, dashboard &amp; laporan; filter data, sorting, API, debugging."
     />
@@ -102,36 +105,6 @@
       5) Footer — hak cipta / nama.
       Edit konten utamanya di markup section di bawah; gaya pakai utilitas Tailwind + blok <style> di <head>.
     -->
-    <script>
-      const THEME_KEY = "portfolio-theme";
-      function applyTheme(theme) {
-        const root = document.documentElement;
-        if (theme === "dark") root.classList.add("dark");
-        else root.classList.remove("dark");
-        localStorage.setItem(THEME_KEY, theme);
-        const btn = document.getElementById("theme-toggle");
-        if (btn) {
-          btn.setAttribute("aria-label", theme === "dark" ? "Mode terang" : "Mode gelap");
-          btn.innerHTML =
-            theme === "dark"
-              ? '<span class="text-lg" aria-hidden="true">☀️</span>'
-              : '<span class="text-lg" aria-hidden="true">🌙</span>';
-        }
-      }
-      function initTheme() {
-        const saved = localStorage.getItem(THEME_KEY);
-        if (saved === "dark" || saved === "light") applyTheme(saved);
-        else if (window.matchMedia("(prefers-color-scheme: dark)").matches)
-          applyTheme("dark");
-        else applyTheme("light");
-      }
-      function toggleTheme() {
-        const isDark = document.documentElement.classList.contains("dark");
-        applyTheme(isDark ? "light" : "dark");
-      }
-      document.addEventListener("DOMContentLoaded", initTheme);
-    </script>
-
     <header
       class="fixed top-0 inset-x-0 z-50 glass border-b-0 border-b-stone-200/50 dark:border-b-slate-800/50 shadow-sm dark:shadow-none"
     >
@@ -141,27 +114,52 @@
         <a href="#bio" class="font-semibold text-stone-900 dark:text-white tracking-tight"
           >.mhsbi</a
         >
-        <nav class="flex items-center gap-1 sm:gap-4 text-sm font-medium">
+        <nav class="flex items-center gap-1 sm:gap-2 text-sm font-medium">
           <a
             href="#bio"
             class="px-2 py-1 rounded-lg text-stone-600 dark:text-stone-400 hover:bg-stone-200/60 dark:hover:bg-slate-800/80 transition-colors"
+            data-i18n-path="ui.nav_bio"
             >Bio</a
           >
           <a
             href="#projects"
             class="px-2 py-1 rounded-lg text-stone-600 dark:text-stone-400 hover:bg-stone-200/60 dark:hover:bg-slate-800/80 transition-colors"
+            data-i18n-path="ui.nav_projects"
             >Project</a
           >
           <a
             href="#experience"
             class="px-2 py-1 rounded-lg text-stone-600 dark:text-stone-400 hover:bg-stone-200/60 dark:hover:bg-slate-800/80 transition-colors"
+            data-i18n-path="ui.nav_career"
             >Karier</a
           >
+          <div
+            id="lang-switch"
+            class="flex items-center gap-0.5 rounded-full bg-stone-200/70 dark:bg-slate-800/90 p-0.5 ml-0.5"
+            role="group"
+            aria-label="Language"
+          >
+            <button
+              type="button"
+              id="lang-btn-id"
+              class="px-2 py-1 text-xs font-semibold rounded-full text-stone-600 dark:text-stone-300 transition-colors"
+              data-locale="id"
+            >
+              ID
+            </button>
+            <button
+              type="button"
+              id="lang-btn-en"
+              class="px-2 py-1 text-xs font-semibold rounded-full text-stone-600 dark:text-stone-300 transition-colors"
+              data-locale="en"
+            >
+              EN
+            </button>
+          </div>
           <button
             type="button"
             id="theme-toggle"
-            onclick="toggleTheme()"
-            class="ml-1 flex items-center justify-center w-10 h-10 rounded-full bg-stone-200/80 dark:bg-slate-800 text-stone-800 dark:text-stone-100 hover:bg-stone-300/80 dark:hover:bg-slate-700 transition-colors"
+            class="ml-0.5 sm:ml-1 flex items-center justify-center w-10 h-10 rounded-full bg-stone-200/80 dark:bg-slate-800 text-stone-800 dark:text-stone-100 hover:bg-stone-300/80 dark:hover:bg-slate-700 transition-colors"
           >
             <span class="text-lg" aria-hidden="true">🌙</span>
           </button>
@@ -188,7 +186,10 @@
               </div>
             </div>
             <div class="flex-1 text-center sm:text-left min-w-0">
-              <p class="text-teal-600 dark:text-teal-400 text-sm font-semibold uppercase tracking-wider mb-1">
+              <p
+                class="text-teal-600 dark:text-teal-400 text-sm font-semibold uppercase tracking-wider mb-1"
+                data-i18n-path="bio.greeting"
+              >
                 Halo, perkenalkan saya
               </p>
               <h1 class="text-3xl sm:text-4xl font-bold text-stone-900 dark:text-white tracking-tight mb-2">
@@ -208,7 +209,7 @@
                 >
 
               </div>
-              <p class="text-stone-600 dark:text-stone-400 leading-relaxed mb-4">
+              <p class="text-stone-600 dark:text-stone-400 leading-relaxed mb-4" data-i18n-html="bio.introHtml">
                 Seorang Web Developer berpengalaman dalam pengembangan, mendesain, dan pemeliharaan website interaktif.
                 Biasa membangun website company profile dan website dashboard dinamis, laporan yang kompleks dengan
                 teknologi terbaru seperti
@@ -221,6 +222,7 @@
               <div id="kontak" class="mb-6 scroll-mt-28">
                 <p
                   class="text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-500 mb-3 text-center sm:text-left"
+                  data-i18n-path="ui.contact_section"
                 >
                   Kontak
                 </p>
@@ -300,7 +302,10 @@
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-500 mb-2">
+                <p
+                  class="text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-500 mb-2"
+                  data-i18n-path="ui.skills_heading"
+                >
                   Skill
                 </p>
                 <div class="flex flex-wrap gap-2 justify-center sm:justify-start">
@@ -330,8 +335,13 @@
           >
             <div class="flex items-start justify-between gap-4">
               <div class="min-w-0 text-left">
-                <h2 class="text-2xl font-bold text-stone-900 dark:text-white">Project &amp; Portofolio</h2>
-                <p class="text-stone-600 dark:text-stone-400 text-sm mt-2 max-w-2xl">
+                <h2 class="text-2xl font-bold text-stone-900 dark:text-white" data-i18n-path="ui.projects_heading">
+                  Project &amp; Portofolio
+                </h2>
+                <p
+                  class="text-stone-600 dark:text-stone-400 text-sm mt-2 max-w-2xl"
+                  data-i18n-path="ui.projects_subtitle"
+                >
                   Berikut adalah beberapa project yang pernah saya kerjakan.
                 </p>
               </div>
@@ -354,9 +364,9 @@
               type="button"
               class="group glass overflow-hidden rounded-xl p-5 flex flex-col h-full text-left w-full border border-stone-200/80 dark:border-slate-700/80 hover:border-teal-500/40 dark:hover:border-teal-500/30 transition-colors hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50 dark:focus-visible:ring-offset-surface-dark"
               data-project-trigger
+              data-project-index="0"
               data-image="https://cdn3.f-cdn.com/files/download/293125361/tubestream.jpg"
               data-image-alt="Pratinjau aplikasi Tubestream"
-              data-desc-template="project-desc-0"
             >
               <div
                 class="-mx-5 -mt-5 mb-3 overflow-hidden rounded-t-xl border-b border-stone-200/70 dark:border-slate-600/50 bg-stone-100/50 dark:bg-slate-800/40"
@@ -374,7 +384,7 @@
               <div class="flex items-start justify-between gap-2">
                 <div class="min-w-0">
                   <h3 class="text-base font-semibold text-stone-900 dark:text-white leading-snug">Tubestream</h3>
-                  <p class="text-xs text-stone-500 dark:text-stone-500 mt-1">Klik untuk detail</p>
+                  <p class="project-card-hint text-xs text-stone-500 dark:text-stone-500 mt-1">Klik untuk detail</p>
                 </div>
                 <span
                   class="mt-0.5 shrink-0 text-stone-400 dark:text-stone-500 opacity-70 group-hover:opacity-100 transition-opacity"
@@ -400,9 +410,9 @@
               type="button"
               class="group glass overflow-hidden rounded-xl p-5 flex flex-col h-full text-left w-full border border-stone-200/80 dark:border-slate-700/80 hover:border-teal-500/40 dark:hover:border-teal-500/30 transition-colors hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50 dark:focus-visible:ring-offset-surface-dark"
               data-project-trigger
+              data-project-index="1"
               data-image="https://cdn5.f-cdn.com/files/download/293125187/pesanlokal.jpg"
               data-image-alt="Pratinjau dashboard aplikasi PesanLokal"
-              data-desc-template="project-desc-1"
             >
               <div
                 class="-mx-5 -mt-5 mb-3 overflow-hidden rounded-t-xl border-b border-stone-200/70 dark:border-slate-600/50 bg-stone-100/50 dark:bg-slate-800/40"
@@ -420,7 +430,7 @@
               <div class="flex items-start justify-between gap-2">
                 <div class="min-w-0">
                   <h3 class="text-base font-semibold text-stone-900 dark:text-white leading-snug">PesanLokal</h3>
-                  <p class="text-xs text-stone-500 dark:text-stone-500 mt-1">Klik untuk detail</p>
+                  <p class="project-card-hint text-xs text-stone-500 dark:text-stone-500 mt-1">Klik untuk detail</p>
                 </div>
                 <span
                   class="mt-0.5 shrink-0 text-stone-400 dark:text-stone-500 opacity-70 group-hover:opacity-100 transition-opacity"
@@ -446,9 +456,9 @@
               type="button"
               class="group glass overflow-hidden rounded-xl p-5 flex flex-col h-full text-left w-full border border-stone-200/80 dark:border-slate-700/80 hover:border-teal-500/40 dark:hover:border-teal-500/30 transition-colors hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50 dark:focus-visible:ring-offset-surface-dark"
               data-project-trigger
+              data-project-index="2"
               data-image="https://cdn5.f-cdn.com/files/download/84890002/bmtpasbantul.png"
               data-image-alt="Pratinjau website company profile BMT PAS (bmtpas.com)"
-              data-desc-template="project-desc-2"
               data-url="https://bmtpas.com"
               data-url-label="bmtpas.com"
             >
@@ -470,7 +480,7 @@
                   <h3 class="text-base font-semibold text-stone-900 dark:text-white leading-snug">
                     Company profile BMT PAS · bmtpas.com
                   </h3>
-                  <p class="text-xs text-stone-500 dark:text-stone-500 mt-1">Klik untuk detail</p>
+                  <p class="project-card-hint text-xs text-stone-500 dark:text-stone-500 mt-1">Klik untuk detail</p>
                 </div>
                 <span
                   class="mt-0.5 shrink-0 text-stone-400 dark:text-stone-500 opacity-70 group-hover:opacity-100 transition-opacity"
@@ -497,9 +507,9 @@
               type="button"
               class="group glass overflow-hidden rounded-xl p-5 flex flex-col h-full text-left w-full border border-stone-200/80 dark:border-slate-700/80 hover:border-teal-500/40 dark:hover:border-teal-500/30 transition-colors hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50 dark:focus-visible:ring-offset-surface-dark"
               data-project-trigger
+              data-project-index="3"
               data-image="https://cdn2.f-cdn.com/files/download/293124685/smkmuhpakem.png"
               data-image-alt="Pratinjau website company profile SMK Muhammadiyah Pakem (smkmuhpakem.sch.id)"
-              data-desc-template="project-desc-3"
               data-url="https://smkmuhpakem.sch.id"
               data-url-label="smkmuhpakem.sch.id"
             >
@@ -521,7 +531,7 @@
                   <h3 class="text-base font-semibold text-stone-900 dark:text-white leading-snug">
                     Company Profile SMK Muhammadiyah Pakem · smkmuhpakem.sch.id
                   </h3>
-                  <p class="text-xs text-stone-500 dark:text-stone-500 mt-1">Klik untuk detail</p>
+                  <p class="project-card-hint text-xs text-stone-500 dark:text-stone-500 mt-1">Klik untuk detail</p>
                 </div>
                 <span
                   class="mt-0.5 shrink-0 text-stone-400 dark:text-stone-500 opacity-70 group-hover:opacity-100 transition-opacity"
@@ -548,9 +558,9 @@
               type="button"
               class="group glass overflow-hidden rounded-xl p-5 flex flex-col h-full text-left w-full border border-stone-200/80 dark:border-slate-700/80 hover:border-teal-500/40 dark:hover:border-teal-500/30 transition-colors hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50 dark:focus-visible:ring-offset-surface-dark"
               data-project-trigger
+              data-project-index="4"
               data-image="https://cdn6.f-cdn.com/files/download/293124338/ibumengaji.jpg"
               data-image-alt="Pratinjau website company profile Ibu Mengaji (ibumengaji.com)"
-              data-desc-template="project-desc-4"
               data-url="https://ibumengaji.com"
               data-url-label="ibumengaji.com"
             >
@@ -572,7 +582,7 @@
                   <h3 class="text-base font-semibold text-stone-900 dark:text-white leading-snug">
                     Company profile Ibu Mengaji · ibumengaji.com
                   </h3>
-                  <p class="text-xs text-stone-500 dark:text-stone-500 mt-1">Klik untuk detail</p>
+                  <p class="project-card-hint text-xs text-stone-500 dark:text-stone-500 mt-1">Klik untuk detail</p>
                 </div>
                 <span
                   class="mt-0.5 shrink-0 text-stone-400 dark:text-stone-500 opacity-70 group-hover:opacity-100 transition-opacity"
@@ -599,9 +609,9 @@
               type="button"
               class="group glass overflow-hidden rounded-xl p-5 flex flex-col h-full text-left w-full border border-stone-200/80 dark:border-slate-700/80 hover:border-teal-500/40 dark:hover:border-teal-500/30 transition-colors hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50 dark:focus-visible:ring-offset-surface-dark"
               data-project-trigger
+              data-project-index="5"
               data-image="https://cdn2.f-cdn.com/files/download/293124906/sd-muh-sapen.png"
               data-image-alt="Pratinjau website company profile SD Muhammadiyah Sapen Yogyakarta (sdmuhsapen-yog.sch.id)"
-              data-desc-template="project-desc-5"
               data-url="https://www.sdmuhsapen-yog.sch.id/"
               data-url-label="sdmuhsapen-yog.sch.id"
             >
@@ -623,7 +633,7 @@
                   <h3 class="text-base font-semibold text-stone-900 dark:text-white leading-snug">
                     Company profile SD Muhammadiyah Sapen · sdmuhsapen-yog.sch.id
                   </h3>
-                  <p class="text-xs text-stone-500 dark:text-stone-500 mt-1">Klik untuk detail</p>
+                  <p class="project-card-hint text-xs text-stone-500 dark:text-stone-500 mt-1">Klik untuk detail</p>
                 </div>
                 <span
                   class="mt-0.5 shrink-0 text-stone-400 dark:text-stone-500 opacity-70 group-hover:opacity-100 transition-opacity"
@@ -647,77 +657,18 @@
               </div>
             </button>
           </div>
-          <template id="project-desc-0">
-            <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed">
-              <strong class="font-medium text-stone-700 dark:text-stone-300">Tubestream</strong> adalah aplikasi
-              berbasis <strong class="font-medium text-stone-700 dark:text-stone-300">website dan Android</strong>
-              dengan fitur yang kompleks. Sebagai developer saya ikut
-              <strong class="font-medium text-stone-700 dark:text-stone-300">memelihara dan mengembangkan</strong>
-              fitur: <strong class="font-medium text-stone-700 dark:text-stone-300">pencarian (search)</strong>,
-              <strong class="font-medium text-stone-700 dark:text-stone-300">filter data ganda</strong>,
-              <strong class="font-medium text-stone-700 dark:text-stone-300">sorting multi-kriteria</strong>,
-              penambahan fitur baru,
-              <strong class="font-medium text-stone-700 dark:text-stone-300">analisis &amp; perbaikan bug</strong>,
-              serta
-              <strong class="font-medium text-stone-700 dark:text-stone-300">deployment</strong> hingga lingkungan
-              <strong class="font-medium text-stone-700 dark:text-stone-300">staging</strong>.
-            </p>
-          </template>
-          <template id="project-desc-1">
-            <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed">
-              Aplikasi <strong class="font-medium text-stone-700 dark:text-stone-300">PesanLokal</strong>: saya
-              mengerjakan bagian <strong class="font-medium text-stone-700 dark:text-stone-300">dashboard</strong>
-              untuk aplikasi Android yang diakses melalui website. Di dashboard tersedia laporan
-              <strong class="font-medium text-stone-700 dark:text-stone-300">order</strong>,
-              <strong class="font-medium text-stone-700 dark:text-stone-300">penjualan (sales)</strong>,
-              <strong class="font-medium text-stone-700 dark:text-stone-300">pelanggan (customer)</strong>, dan
-              <strong class="font-medium text-stone-700 dark:text-stone-300">produk</strong> dengan filter rentang
-              waktu yang fleksibel, serta fitur
-              <strong class="font-medium text-stone-700 dark:text-stone-300">rekap penjualan</strong>
-              dengan berbagai periode waktu.
-            </p>
-          </template>
-          <template id="project-desc-2">
-            <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed">
-              Website company profile yang awalnya dibangun dengan PHP native; karena kebutuhan klien untuk
-              mengelola postingan dan konten, solusi dipindahkan ke WordPress. Di dalamnya tersedia
-              <strong class="font-medium text-stone-700 dark:text-stone-300">kalkulator zakat</strong> dan
-              <strong class="font-medium text-stone-700 dark:text-stone-300">simulasi perhitungan pembiayaan</strong>.
-            </p>
-          </template>
-          <template id="project-desc-3">
-            <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed">
-              Website company profile berbasis WordPress dengan fitur halaman profil, berita, galeri, bursa kerja,
-              alumni, serta chat WhatsApp untuk SPMB.
-            </p>
-          </template>
-          <template id="project-desc-4">
-            <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed">
-              Website company profile berbasis WordPress dengan fitur postingan, halaman produk, halaman profil, dan
-              galeri. Tersedia
-              <strong class="font-medium text-stone-700 dark:text-stone-300">kalkulator simulasi zakat</strong>.
-              Sebelumnya memiliki fitur donasi yang sudah tidak dipakai lagi.
-            </p>
-          </template>
-          <template id="project-desc-5">
-            <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed">
-              Website company profile berbasis
-              <strong class="font-medium text-stone-700 dark:text-stone-300">Laravel</strong> dengan halaman profil
-              sekolah (tentang kami, sambutan kepala sekolah, struktur, profil guru &amp; karyawan, dan informasi
-              terkait), halaman fasilitas, program sekolah, serta berita. Dilengkapi alur
-              <strong class="font-medium text-stone-700 dark:text-stone-300">PPDB via chat WhatsApp</strong> dan
-              dukungan <strong class="font-medium text-stone-700 dark:text-stone-300">dua bahasa</strong>
-              (Indonesia &amp; Inggris). Pada proyek ini kontribusi utama saya ada di sisi
-              <strong class="font-medium text-stone-700 dark:text-stone-300">tampilan (front end)</strong>.
-            </p>
-          </template>
         </details>
       </section>
 
       <!-- Experience & Education -->
       <section id="experience" class="scroll-mt-24">
-        <h2 class="text-2xl font-bold text-stone-900 dark:text-white mb-2">Pengalaman &amp; Pendidikan</h2>
-        <p class="text-stone-600 dark:text-stone-400 text-sm mb-8 max-w-xl">
+        <h2 class="text-2xl font-bold text-stone-900 dark:text-white mb-2" data-i18n-path="ui.exp_section_title">
+          Pengalaman &amp; Pendidikan
+        </h2>
+        <p
+          class="text-stone-600 dark:text-stone-400 text-sm mb-8 max-w-xl"
+          data-i18n-path="ui.exp_section_subtitle"
+        >
           Berikut adalah pengalaman karir professional dan pendidikan formal saya.
         </p>
 
@@ -727,7 +678,10 @@
               class="cursor-pointer list-none select-none rounded-lg -mx-1 px-1 py-2 mb-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50 dark:focus-visible:ring-offset-surface-dark [&::-webkit-details-marker]:hidden"
             >
               <div class="flex items-center justify-between gap-3">
-                <h3 class="text-sm font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
+                <h3
+                  class="text-sm font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400"
+                  data-i18n-path="ui.exp_column"
+                >
                   Pengalaman
                 </h3>
                 <span
@@ -756,13 +710,13 @@
                       class="relative z-[1] mt-0.5 h-3 w-3 shrink-0 rounded-full border-2 border-stone-50 bg-teal-500 shadow-[0_0_0_2px_rgb(15_23_24_/_0.06)] dark:border-surface-dark dark:bg-teal-400 dark:shadow-[0_0_0_2px_rgb(0_0_0_/_0.35)]"
                     ></span>
                   </div>
-                  <div class="min-w-0 flex-1">
-                    <p class="text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">
+                  <div class="min-w-0 flex-1" data-job="0">
+                    <p class="exp-period text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">
                       Jan 2020 — Sekarang
                     </p>
-                    <p class="font-semibold text-stone-900 dark:text-white">Web Developer</p>
-                    <p class="text-sm text-stone-600 dark:text-stone-400">PT. Inosoft Trans Sistem · Indonesia</p>
-                    <p class="text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
+                    <p class="exp-title font-semibold text-stone-900 dark:text-white">Web Developer</p>
+                    <p class="exp-company text-sm text-stone-600 dark:text-stone-400">PT. Inosoft Trans Sistem · Indonesia</p>
+                    <p class="exp-body text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
                       Pengembangan dan pemeliharaan aplikasi web interaktif: fitur pencarian, filter data, sorting multi-kriteria, integrasi API, dan manajemen basis data relasional. Analisis &amp; perbaikan bug untuk stabilitas. Kolaborasi agile dengan Laravel, Vue.js, dan praktik Git.
                     </p>
                   </div>
@@ -773,13 +727,13 @@
                       class="relative z-[1] mt-0.5 h-3 w-3 shrink-0 rounded-full border-2 border-stone-50 bg-teal-500 shadow-[0_0_0_2px_rgb(15_23_24_/_0.06)] dark:border-surface-dark dark:bg-teal-400 dark:shadow-[0_0_0_2px_rgb(0_0_0_/_0.35)]"
                     ></span>
                   </div>
-                  <div class="min-w-0 flex-1">
-                    <p class="text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">
+                  <div class="min-w-0 flex-1" data-job="1">
+                    <p class="exp-period text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">
                       Sep 2017 — Sekarang
                     </p>
-                    <p class="font-semibold text-stone-900 dark:text-white">Web Developer · Freelance</p>
-                    <p class="text-sm text-stone-600 dark:text-stone-400">Self-employed · Yogyakarta &amp; sekitarnya</p>
-                    <p class="text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
+                    <p class="exp-title font-semibold text-stone-900 dark:text-white">Web Developer · Freelance</p>
+                    <p class="exp-company text-sm text-stone-600 dark:text-stone-400">Self-employed · Yogyakarta &amp; sekitarnya</p>
+                    <p class="exp-body text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
                       Desain &amp; pengembangan website serta aplikasi web responsif sesuai kebutuhan klien, integrasi API, deployment aman, dukungan teknis, dan perbaikan berkelanjutan pasca rilis.
                     </p>
                   </div>
@@ -790,13 +744,13 @@
                       class="relative z-[1] mt-0.5 h-3 w-3 shrink-0 rounded-full border-2 border-stone-50 bg-teal-500 shadow-[0_0_0_2px_rgb(15_23_24_/_0.06)] dark:border-surface-dark dark:bg-teal-400 dark:shadow-[0_0_0_2px_rgb(0_0_0_/_0.35)]"
                     ></span>
                   </div>
-                  <div class="min-w-0 flex-1">
-                    <p class="text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">
+                  <div class="min-w-0 flex-1" data-job="2">
+                    <p class="exp-period text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">
                       Jul 2020 — Mei 2021
                     </p>
-                    <p class="font-semibold text-stone-900 dark:text-white">Full-stack Developer</p>
-                    <p class="text-sm text-stone-600 dark:text-stone-400">PesanLokal</p>
-                    <p class="text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
+                    <p class="exp-title font-semibold text-stone-900 dark:text-white">Full-stack Developer</p>
+                    <p class="exp-company text-sm text-stone-600 dark:text-stone-400">PesanLokal</p>
+                    <p class="exp-body text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
                       Implementasi dashboard untuk pelanggan &amp; merchant (Vue.js &amp; Laravel), laporan berkala (mingguan/bulanan/tahunan), serta analisis bug untuk kestabilan fitur.
                     </p>
                   </div>
@@ -807,13 +761,13 @@
                       class="relative z-[1] mt-0.5 h-3 w-3 shrink-0 rounded-full border-2 border-stone-50 bg-teal-500 shadow-[0_0_0_2px_rgb(15_23_24_/_0.06)] dark:border-surface-dark dark:bg-teal-400 dark:shadow-[0_0_0_2px_rgb(0_0_0_/_0.35)]"
                     ></span>
                   </div>
-                  <div class="min-w-0 flex-1">
-                    <p class="text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">
+                  <div class="min-w-0 flex-1" data-job="3">
+                    <p class="exp-period text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">
                       Sep 2017 — Des 2018
                     </p>
-                    <p class="font-semibold text-stone-900 dark:text-white">Web Programmer</p>
-                    <p class="text-sm text-stone-600 dark:text-stone-400">TechnoGIS Indonesia · Yogyakarta</p>
-                    <p class="text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
+                    <p class="exp-title font-semibold text-stone-900 dark:text-white">Web Programmer</p>
+                    <p class="exp-company text-sm text-stone-600 dark:text-stone-400">TechnoGIS Indonesia · Yogyakarta</p>
+                    <p class="exp-body text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
                       Pengembangan website berbasis peta dengan marker dan layer sesuai kebutuhan klien; analisis dan perbaikan bug pada fitur.
                     </p>
                   </div>
@@ -826,7 +780,10 @@
               class="cursor-pointer list-none select-none rounded-lg -mx-1 px-1 py-2 mb-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50 dark:focus-visible:ring-offset-surface-dark [&::-webkit-details-marker]:hidden"
             >
               <div class="flex items-center justify-between gap-3">
-                <h3 class="text-sm font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                <h3
+                  class="text-sm font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400"
+                  data-i18n-path="ui.edu_column"
+                >
                   Pendidikan
                 </h3>
                 <span
@@ -855,11 +812,11 @@
                       class="relative z-[1] mt-0.5 h-3 w-3 shrink-0 rounded-full border-2 border-stone-50 bg-amber-500 shadow-[0_0_0_2px_rgb(15_23_24_/_0.06)] dark:border-surface-dark dark:bg-amber-400 dark:shadow-[0_0_0_2px_rgb(0_0_0_/_0.35)]"
                     ></span>
                   </div>
-                  <div class="min-w-0 flex-1">
-                    <p class="text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">2016 — 2021</p>
-                    <p class="font-semibold text-stone-900 dark:text-white">Sarjana (S1) · Informatika</p>
-                    <p class="text-sm text-stone-600 dark:text-stone-400">Universitas Amikom Yogyakarta</p>
-                    <p class="text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
+                  <div class="min-w-0 flex-1" data-edu="0">
+                    <p class="edu-period text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">2016 — 2021</p>
+                    <p class="edu-title font-semibold text-stone-900 dark:text-white">Sarjana (S1) · Informatika</p>
+                    <p class="edu-school text-sm text-stone-600 dark:text-stone-400">Universitas Amikom Yogyakarta</p>
+                    <p class="edu-body text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
                       Fondasi kuat di pengembangan perangkat lunak dan aplikasi web sesuai kurikulum teknik informatika.
                     </p>
                   </div>
@@ -870,11 +827,11 @@
                       class="relative z-[1] mt-0.5 h-3 w-3 shrink-0 rounded-full border-2 border-stone-50 bg-amber-500 shadow-[0_0_0_2px_rgb(15_23_24_/_0.06)] dark:border-surface-dark dark:bg-amber-400 dark:shadow-[0_0_0_2px_rgb(0_0_0_/_0.35)]"
                     ></span>
                   </div>
-                  <div class="min-w-0 flex-1">
-                    <p class="text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">2013 — 2016</p>
-                    <p class="font-semibold text-stone-900 dark:text-white">Rekayasa Perangkat Lunak</p>
-                    <p class="text-sm text-stone-600 dark:text-stone-400">SMK Telekomunikasi Tunas Harapan</p>
-                    <p class="text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
+                  <div class="min-w-0 flex-1" data-edu="1">
+                    <p class="edu-period text-xs font-medium text-stone-500 dark:text-stone-500 mb-1 pl-0.5">2013 — 2016</p>
+                    <p class="edu-title font-semibold text-stone-900 dark:text-white">Rekayasa Perangkat Lunak</p>
+                    <p class="edu-school text-sm text-stone-600 dark:text-stone-400">SMK Telekomunikasi Tunas Harapan</p>
+                    <p class="edu-body text-sm text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
                       Pendidikan menengah kejuruan di bidang RPL sebagai dasar memasuki industri software.
                     </p>
                   </div>
@@ -900,6 +857,7 @@
           type="button"
           id="project-modal-close"
           class="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-stone-200/90 text-stone-700 shadow-sm transition-colors hover:bg-stone-300 dark:bg-slate-800 dark:text-stone-200 dark:hover:bg-slate-700"
+          data-i18n-aria="ui.modal_close"
           aria-label="Tutup detail project"
         >
           <svg class="h-5 w-5 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -948,7 +906,7 @@
         <p class="m-0 text-center sm:text-left">
           © <span id="y"></span> Muhammad Hasbi Habibi
         </p>
-        <nav class="shrink-0" aria-label="Kontak">
+        <nav id="footer-contact-nav" class="shrink-0" aria-label="Kontak">
           <ul
             class="flex flex-wrap items-center justify-center gap-3 list-none p-0 m-0 sm:justify-end"
             role="list"
@@ -1027,84 +985,302 @@
       </div>
     </footer>
 
+    <script src="assets/i18n.js"></script>
     <script>
-      document.getElementById("y").textContent = new Date().getFullYear();
-
       (function () {
-        const modal = document.getElementById("project-modal");
-        if (!modal) return;
+        var THEME_KEY = "portfolio-theme";
+        var LOCALE_KEY = "portfolio-locale";
 
-        const titleEl = document.getElementById("project-modal-title");
-        const imgEl = document.getElementById("project-modal-image");
-        const tagsEl = document.getElementById("project-modal-tags");
-        const bodyEl = document.getElementById("project-modal-body");
-        const linkEl = document.getElementById("project-modal-link");
-        const closeBtn = document.getElementById("project-modal-close");
-        let lastFocus = null;
-
-        function openFromButton(btn) {
-          lastFocus = document.activeElement;
-          const h3 = btn.querySelector("h3");
-          titleEl.textContent = h3 ? h3.textContent.trim() : "";
-
-          imgEl.src = btn.dataset.image || "";
-          imgEl.alt = btn.dataset.imageAlt || "";
-
-          tagsEl.replaceChildren();
-          btn.querySelectorAll(".project-card-tags .tech-tag").forEach(function (tag) {
-            tagsEl.appendChild(tag.cloneNode(true));
-          });
-
-          bodyEl.replaceChildren();
-          const tid = btn.dataset.descTemplate;
-          if (tid) {
-            const tpl = document.getElementById(tid);
-            if (tpl && tpl.content) {
-              bodyEl.appendChild(tpl.content.cloneNode(true));
-            }
-          }
-
-          const url = btn.dataset.url;
-          if (url) {
-            linkEl.href = url;
-            let label = btn.dataset.urlLabel;
-            if (!label) {
-              label = url.replace(/^https?:\/\//, "").replace(/\/$/, "");
-            }
-            linkEl.textContent = label + " →";
-            linkEl.classList.remove("hidden");
-          } else {
-            linkEl.classList.add("hidden");
-            linkEl.removeAttribute("href");
-          }
-
-          document.body.style.overflow = "hidden";
-          modal.showModal();
-          closeBtn.focus();
+        function normalizeLocale(v) {
+          if (v === "en" || v === "id") return v;
+          return null;
         }
 
-        document.querySelectorAll("[data-project-trigger]").forEach(function (btn) {
-          btn.setAttribute("aria-haspopup", "dialog");
-          btn.addEventListener("click", function () {
-            openFromButton(btn);
+        function getLocale() {
+          return window.__portfolioLocale || "id";
+        }
+
+        function resolvePath(path) {
+          return path.split(".").reduce(function (obj, key) {
+            return obj && obj[key] !== undefined ? obj[key] : null;
+          }, PORTFOLIO_I18N);
+        }
+
+        function pick(node) {
+          if (node == null) return "";
+          var loc = getLocale();
+          if (typeof node === "string") return node;
+          if (node[loc] != null) return String(node[loc]);
+          if (node.id != null) return String(node.id);
+          return "";
+        }
+
+        function initLocale() {
+          var params = new URLSearchParams(window.location.search);
+          var fromUrl = normalizeLocale(params.get("lang"));
+          var fromStorage = normalizeLocale(localStorage.getItem(LOCALE_KEY));
+          var browser = (navigator.language || "").toLowerCase();
+          var fallback = browser.indexOf("id") === 0 ? "id" : "en";
+          var loc = fromUrl || fromStorage || fallback;
+          window.__portfolioLocale = loc;
+          if (fromUrl) localStorage.setItem(LOCALE_KEY, fromUrl);
+          else if (!fromStorage) localStorage.setItem(LOCALE_KEY, loc);
+          document.documentElement.lang = loc;
+        }
+
+        function setLocale(next) {
+          var loc = normalizeLocale(next) || "id";
+          window.__portfolioLocale = loc;
+          localStorage.setItem(LOCALE_KEY, loc);
+          document.documentElement.lang = loc;
+          var u = new URL(window.location.href);
+          u.searchParams.set("lang", loc);
+          history.replaceState(null, "", u.pathname + u.search + u.hash);
+          applyLocale();
+        }
+
+        function updateThemeAria() {
+          var btn = document.getElementById("theme-toggle");
+          if (!btn) return;
+          var dark = document.documentElement.classList.contains("dark");
+          if (!PORTFOLIO_I18N) {
+            btn.setAttribute("aria-label", dark ? "Mode terang" : "Mode gelap");
+            return;
+          }
+          var node = dark ? PORTFOLIO_I18N.ui.theme_light : PORTFOLIO_I18N.ui.theme_dark;
+          btn.setAttribute("aria-label", pick(node));
+        }
+
+        function applyLocale() {
+          var I18N = PORTFOLIO_I18N;
+          if (!I18N) return;
+
+          document.querySelectorAll("[data-i18n-path]").forEach(function (el) {
+            var path = el.getAttribute("data-i18n-path");
+            if (!path) return;
+            var node = resolvePath(path);
+            if (node && (node.id != null || node.en != null)) el.textContent = pick(node);
           });
-        });
 
-        closeBtn.addEventListener("click", function () {
-          modal.close();
-        });
+          document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+            var path = el.getAttribute("data-i18n-html");
+            if (!path) return;
+            var node = resolvePath(path);
+            if (node && (node.id != null || node.en != null)) el.innerHTML = pick(node);
+          });
 
-        modal.addEventListener("click", function (e) {
-          if (e.target === modal) {
+          document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+            var path = el.getAttribute("data-i18n-aria");
+            if (!path) return;
+            var node = resolvePath(path);
+            if (node && (node.id != null || node.en != null)) el.setAttribute("aria-label", pick(node));
+          });
+
+          var hint = pick(I18N.ui.project_click_hint);
+          document.querySelectorAll(".project-card-hint").forEach(function (el) {
+            el.textContent = hint;
+          });
+
+          I18N.projects.items.forEach(function (item, i) {
+            var btn = document.querySelector('[data-project-index="' + i + '"]');
+            if (!btn) return;
+            var h3 = btn.querySelector("h3");
+            if (h3) h3.textContent = pick(item.title);
+            var img = btn.querySelector("img");
+            var alt = pick(item.imageAlt);
+            if (img) img.setAttribute("alt", alt);
+            btn.dataset.imageAlt = alt;
+          });
+
+          document.querySelectorAll("[data-job]").forEach(function (el) {
+            var idx = parseInt(el.getAttribute("data-job"), 10);
+            var job = I18N.experience.jobs[idx];
+            if (!job) return;
+            var p1 = el.querySelector(".exp-period");
+            var p2 = el.querySelector(".exp-title");
+            var p3 = el.querySelector(".exp-company");
+            var p4 = el.querySelector(".exp-body");
+            if (p1) p1.textContent = pick(job.period);
+            if (p2) p2.textContent = pick(job.title);
+            if (p3) p3.textContent = pick(job.company);
+            if (p4) p4.textContent = pick(job.body);
+          });
+
+          document.querySelectorAll("[data-edu]").forEach(function (el) {
+            var idx = parseInt(el.getAttribute("data-edu"), 10);
+            var edu = I18N.experience.education[idx];
+            if (!edu) return;
+            var p1 = el.querySelector(".edu-period");
+            var p2 = el.querySelector(".edu-title");
+            var p3 = el.querySelector(".edu-school");
+            var p4 = el.querySelector(".edu-body");
+            if (p1) p1.textContent = pick(edu.period);
+            if (p2) p2.textContent = pick(edu.title);
+            if (p3) p3.textContent = pick(edu.school);
+            if (p4) p4.textContent = pick(edu.body);
+          });
+
+          document.title = pick(I18N.meta.title);
+          var md = document.getElementById("meta-desc");
+          if (md) md.setAttribute("content", pick(I18N.meta.description));
+          var ogd = document.getElementById("meta-og-desc");
+          if (ogd) ogd.setAttribute("content", pick(I18N.meta.description));
+          var twd = document.getElementById("meta-tw-desc");
+          if (twd) twd.setAttribute("content", pick(I18N.meta.description));
+          var ogl = document.getElementById("meta-og-locale");
+          if (ogl) ogl.setAttribute("content", getLocale() === "en" ? "en_US" : "id_ID");
+          var ogt = document.querySelector('meta[property="og:title"]');
+          if (ogt) ogt.setAttribute("content", pick(I18N.meta.title));
+          var twt = document.querySelector('meta[name="twitter:title"]');
+          if (twt) twt.setAttribute("content", pick(I18N.meta.title));
+
+          var loc = getLocale();
+          var idBtn = document.getElementById("lang-btn-id");
+          var enBtn = document.getElementById("lang-btn-en");
+          var base = "px-2 py-1 text-xs font-semibold rounded-full transition-colors ";
+          var on = "bg-white dark:bg-slate-700 text-stone-900 dark:text-white shadow-sm";
+          var off = "text-stone-600 dark:text-stone-300";
+          if (idBtn) {
+            idBtn.setAttribute("aria-pressed", loc === "id" ? "true" : "false");
+            idBtn.className = base + (loc === "id" ? on : off);
+          }
+          if (enBtn) {
+            enBtn.setAttribute("aria-pressed", loc === "en" ? "true" : "false");
+            enBtn.className = base + (loc === "en" ? on : off);
+          }
+          var langSwitch = document.getElementById("lang-switch");
+          if (langSwitch) langSwitch.setAttribute("aria-label", pick(I18N.ui.lang_switch));
+
+          var fn = document.getElementById("footer-contact-nav");
+          if (fn) fn.setAttribute("aria-label", pick(I18N.ui.footer_contact_nav));
+
+          updateThemeAria();
+        }
+
+        function applyTheme(theme) {
+          var root = document.documentElement;
+          if (theme === "dark") root.classList.add("dark");
+          else root.classList.remove("dark");
+          localStorage.setItem(THEME_KEY, theme);
+          var btn = document.getElementById("theme-toggle");
+          if (btn) {
+            btn.innerHTML =
+              theme === "dark"
+                ? '<span class="text-lg" aria-hidden="true">☀️</span>'
+                : '<span class="text-lg" aria-hidden="true">🌙</span>';
+            updateThemeAria();
+          }
+        }
+
+        function initTheme() {
+          var saved = localStorage.getItem(THEME_KEY);
+          if (saved === "dark" || saved === "light") applyTheme(saved);
+          else if (window.matchMedia("(prefers-color-scheme: dark)").matches) applyTheme("dark");
+          else applyTheme("light");
+        }
+
+        function toggleTheme() {
+          var isDark = document.documentElement.classList.contains("dark");
+          applyTheme(isDark ? "light" : "dark");
+        }
+
+        function wireLangButtons() {
+          ["lang-btn-id", "lang-btn-en"].forEach(function (id) {
+            var b = document.getElementById(id);
+            if (!b) return;
+            b.addEventListener("click", function () {
+              setLocale(b.getAttribute("data-locale"));
+            });
+          });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+          var y = document.getElementById("y");
+          if (y) y.textContent = String(new Date().getFullYear());
+
+          initTheme();
+
+          var tb = document.getElementById("theme-toggle");
+          if (tb) tb.addEventListener("click", toggleTheme);
+
+          if (window.PORTFOLIO_I18N) {
+            initLocale();
+            applyLocale();
+            wireLangButtons();
+          }
+
+          var modal = document.getElementById("project-modal");
+          if (!modal) return;
+
+          var titleEl = document.getElementById("project-modal-title");
+          var imgEl = document.getElementById("project-modal-image");
+          var tagsEl = document.getElementById("project-modal-tags");
+          var bodyEl = document.getElementById("project-modal-body");
+          var linkEl = document.getElementById("project-modal-link");
+          var closeBtn = document.getElementById("project-modal-close");
+          var lastFocus = null;
+
+          function openFromButton(btn) {
+            lastFocus = document.activeElement;
+            var idx = parseInt(btn.getAttribute("data-project-index"), 10);
+            var item =
+              window.PORTFOLIO_I18N && PORTFOLIO_I18N.projects && PORTFOLIO_I18N.projects.items
+                ? PORTFOLIO_I18N.projects.items[idx]
+                : null;
+            if (item) {
+              titleEl.textContent = pick(item.title);
+              imgEl.alt = pick(item.imageAlt);
+              bodyEl.innerHTML = pick(item.descriptionHtml);
+            } else {
+              var h3 = btn.querySelector("h3");
+              titleEl.textContent = h3 ? h3.textContent.trim() : "";
+              bodyEl.innerHTML = "";
+              imgEl.alt = btn.getAttribute("data-image-alt") || "";
+            }
+
+            imgEl.src = btn.getAttribute("data-image") || "";
+
+            tagsEl.replaceChildren();
+            btn.querySelectorAll(".project-card-tags .tech-tag").forEach(function (tag) {
+              tagsEl.appendChild(tag.cloneNode(true));
+            });
+
+            var url = btn.getAttribute("data-url");
+            if (url) {
+              linkEl.href = url;
+              var label = btn.getAttribute("data-url-label");
+              if (!label) label = url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+              linkEl.textContent = label + " →";
+              linkEl.classList.remove("hidden");
+            } else {
+              linkEl.classList.add("hidden");
+              linkEl.removeAttribute("href");
+            }
+
+            document.body.style.overflow = "hidden";
+            modal.showModal();
+            closeBtn.focus();
+          }
+
+          document.querySelectorAll("[data-project-trigger]").forEach(function (btn) {
+            btn.setAttribute("aria-haspopup", "dialog");
+            btn.addEventListener("click", function () {
+              openFromButton(btn);
+            });
+          });
+
+          closeBtn.addEventListener("click", function () {
             modal.close();
-          }
-        });
+          });
 
-        modal.addEventListener("close", function () {
-          document.body.style.overflow = "";
-          if (lastFocus && typeof lastFocus.focus === "function") {
-            lastFocus.focus();
-          }
+          modal.addEventListener("click", function (e) {
+            if (e.target === modal) modal.close();
+          });
+
+          modal.addEventListener("close", function () {
+            document.body.style.overflow = "";
+            if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+          });
         });
       })();
     </script>
