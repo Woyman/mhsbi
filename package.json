@@ -2,7 +2,7 @@
   "name": "mhsbi-portfolio-onepage",
   "private": true,
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   },
   "scripts": {
     "dev": "serve . -l 5173",
